@@ -25,7 +25,7 @@
     --color-primary-80: #133853;
     --color-primary-70: #1c557d;
     --color-primary: #2c82bf;
-    --color-primary-05: #DBF0FF;
+    --color-primary-05: #dbf0ff;
     --color-primary-10: #d5e8f6;
     --color-primary-25: #97c6e7;
     --color-primary-40: #59a4d9;
@@ -70,7 +70,7 @@ a:hover {
 }
 
 /* Content / Container */
-.grow{
+.grow {
     width: 100%;
     height: 100%;
     margin: 0 auto;
@@ -86,7 +86,7 @@ a:hover {
     margin: 0 3rem;
 }
 
-.container-title{
+.container-title {
     background-color: var(--color-primary-10);
 }
 
@@ -125,7 +125,7 @@ a:hover {
 }
 
 /* Card */
-.menu-calculator-container{
+.menu-calculator-container {
     flex: 1;
     min-height: 100vh;
 }
@@ -240,18 +240,18 @@ a:hover {
     flex-direction: column;
 }
 
-.content-title-container{
+.content-title-container {
     max-width: 120rem;
     margin: 0 auto;
     padding: 0 var(--gap-smaller);
 }
 
-.content-title{
+.content-title {
     display: flex;
     align-items: center;
 }
 
-.content-title img{
+.content-title img {
     width: 5rem;
     margin-right: var(--gap-small);
 }
@@ -261,16 +261,150 @@ a:hover {
     color: var(--color-gray-7);
 }
 
-.calculator-space-container{
+.calculator-space-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: var(--gap-large);
+    margin: var(--gap-large) 0;
 }
 
-.calculator-space-content{
-    border: 1px solid var(--color-gray-3);
-    min-width: 100rem;
+.calculator-space-content {
+    width: 90%;
+    max-width: 100rem;
+    background-color: var(--color-primary-10);
+}
+
+.grid-calculator {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(29rem, 1fr));
+    gap: var(--gap-smaller);
+    align-items: center;
+    justify-items: center;
+    padding: var(--gap-medium) 0;
+}
+
+.grid-calculator-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.calculator-select {
+    position: absolute;
+    height: 4rem;
+    width: 8rem;
+    border: solid 1.5px #9e9e9e;
+    border-top-right-radius: 0.7rem;
+    border-bottom-right-radius: 0.7rem;
+    background: var(--color-white);
+    color: var(--color-black);
+}
+
+/* Inputs */
+.input-group,
+.input-group-min {
+    position: relative;
+    margin: var(--gap-small) auto;
+}
+
+.input-group-min {
+    max-width: 16rem;
+    left: -4rem;
+}
+
+.input-group {
+    max-width: 28rem;
+}
+
+.input,
+.input-min {
+    border: solid 1.5px #9e9e9e;
+    background: var(--color-white);
+    padding: 1rem;
+    font-size: 1.6rem;
+    color: var(--color-black);
+    transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input-min {
+    border-top-left-radius: 0.7rem;
+    border-bottom-left-radius: 0.7rem;
+    max-width: 16rem;
+}
+
+.input {
+    border-radius: 0.7rem;
+    max-width: 28rem;
+}
+
+.user-label {
+    position: absolute;
+    left: 1rem;
+    color: var(--color-gray-6);
+    pointer-events: none;
+    transform: translateY(1rem);
+    transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input:focus,
+.input-min:focus,
+input:valid {
+    outline: none;
+    border: 1.5px solid var(--color-primary-70);
+}
+
+.input:focus ~ label,
+.input-min:focus ~ label,
+input:valid ~ label {
+    transform: translateY(-60%) scale(0.8);
+    padding: 0 0.2em;
+    color: var(--color-primary-70);
+    background: linear-gradient(
+        180deg,
+        rgba(213, 232, 246, 1) 20%,
+        rgba(255, 255, 255, 1) 100%
+    );
+}
+
+/* Buttons */
+.button-container{
+    display: flex;
+    justify-content: center;
+    margin: var(--gap-small) auto;
+    flex-wrap: wrap;
+}
+
+.button-primary, 
+.button-clean {
+    border: none;
+    font-size: 2rem;
+    padding: 1rem 4rem;
+    border-radius: 2rem;
+    margin: var(--gap-smaller) var(--gap-medium);
+    margin-top: 0;
+    transition: all 300ms ease-in-out;
+}
+
+.button-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.button-primary:hover {
+    background-color: var(--color-primary-70);
+    cursor: pointer;
+}
+
+.button-clean {
+    background-color: var(--color-primary-dark-80);
+    color: var(--color-white);
+}
+
+.button-clean:hover {
+    background-color: var(--color-primary-dark);
+    cursor: pointer;
 }
 
 /* Footer */
