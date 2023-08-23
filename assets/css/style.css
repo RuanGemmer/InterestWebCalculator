@@ -70,6 +70,13 @@ a:hover {
 }
 
 /* Content / Container */
+.grow{
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+}
+
 .container {
     background-color: var(--color-gray-02);
 }
@@ -81,7 +88,6 @@ a:hover {
 
 .container-title{
     background-color: var(--color-primary-10);
-
 }
 
 /* Header */
@@ -93,7 +99,7 @@ a:hover {
 }
 
 .header-content {
-    padding: var(--gap-small);
+    padding: var(--gap-smaller);
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -119,18 +125,24 @@ a:hover {
 }
 
 /* Card */
+.menu-calculator-container{
+    flex: 1;
+    min-height: 100vh;
+}
+
 .menu-calculator-content {
-    min-height: 85vh;
-    margin: 0 auto;
+    flex: 1;
+    height: 100%;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    margin: 0 auto;
 }
 
 .grid-card {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
     gap: var(--gap-medium);
     justify-items: center;
     align-items: center;
@@ -231,8 +243,7 @@ a:hover {
 .content-title-container{
     max-width: 120rem;
     margin: 0 auto;
-    padding: 0 var(--gap-small);
-
+    padding: 0 var(--gap-smaller);
 }
 
 .content-title{
@@ -265,10 +276,11 @@ a:hover {
 /* Footer */
 .footer-container {
     background-color: var(--color-gray-9);
+    width: 100%;
 }
 
 .footer-content {
-    padding: var(--gap-small);
+    padding: var(--gap-smaller);
     color: var(--color-white);
     margin: 0 auto;
     display: flex;
