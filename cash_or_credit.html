@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css"
+        integrity="sha512-W/zrbCncQnky/EzL+/AYwTtosvrM+YG/V6piQLSe2HuKS6cmbw89kjYkp3tWFn1dkWV7L1ruvJyKbLz73Vlgfg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css"
+        integrity="sha512-siarrzI1u3pCqFG2LEzi87McrBmq6Tp7juVsdmGY1Dr8Saw+ZBAzDzrGwX3vgxX1NkioYNCFOVC0GpDPss10zQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css"
+        integrity="sha512-P9pgMgcSNlLb4Z2WAB2sH5KBKGnBfyJnq+bhcfLCFusrRc4XdXrhfDluBl/usq75NF5gTDIMcwI1GaG5gju+Mw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="shortcut icon" href="./assets/img/Calculator.svg" type="image/x-icon">
+
+    <link rel="stylesheet" href="./assets/css/remedy.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <title>Calculadora | À Vista ou Parcelado?</title>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header-container">
+        <section class="header-content content">
+            <a href="/index.html">
+                <h2 class="header-title">
+                    <img class="header-icon" src="./assets/img/Calculator-white.svg" alt="image calculator">
+                    Calculadora
+                </h2>
+            </a>
+        </section>
+    </header>
+
+    <!-- Content -->
+    <div class="grow container">
+        <main class="menu-calculator-container">
+            <section class="calculator-content">
+                <div class="container-title">
+                    <div class="content-title-container">
+                        <h2 class="content-title">
+                            <img src="./assets/img/money.svg" alt="image money">
+                            Calculadora de pagamento: À Vista ou Parcelado?
+                        </h2>
+                        <p class="content-subtitle">Calcule qual a melhor maneira de fazer o pagamento das suas compras!
+                        </p>
+                        <p class="content-tips">Leia: o que é <a
+                                href="https://www.topinvest.com.br/glossario/valor-presente/" target="_blank"
+                                rel="noopener noreferrer">VALOR PRESENTE</a>.</p>
+                    </div>
+                </div>
+
+                <div class="calculator-space-container">
+                    <div class="calculator-space-content">
+                        <div class="grid-calculator-pair">
+                            <span class="grid-calculator-content">
+                                <div class="input-group">
+                                    <input required type="number" name="credit-value" id="credit-value"
+                                        autocomplete="off" class="input">
+                                    <label class="user-label">Valor da compra parcelada (R$)</label>
+                                </div>
+                                <a href="/">Não sei o valor total da compra parcelada</a>
+                            </span>
+
+                            <span class="grid-calculator-content">
+                                <div class="input-group">
+                                    <input required type="number" name="cash-value" id="cash-value" autocomplete="off"
+                                        class="input">
+                                    <label class="user-label">Valor da compra à vista (R$)</label>
+                                </div>
+                            </span>
+
+
+                            <span class="grid-calculator-content">
+                                <div class="input-group">
+                                    <input required type="number" name="installments" id="installments"
+                                        autocomplete="off" class="input">
+                                    <label class="user-label">Nº de parcelas</label>
+                                </div>
+                            </span>
+
+                            <span class="grid-calculator-content">
+                                <div class="input-group-select">
+                                    <p>Onde você investe seu dinheiro?</p>
+                                    <select class="calculator-select-x" name="investment" id="investment">
+                                        <option value="investment-none" selected>Não invisto</option>
+                                        <option value="investment-savings">Poupança</option>
+                                        <option value="investment-selic">Tesouro SELIC - LFT</option>
+                                        <option value="investment-cdb-large-bank">Título 80% CDI</option>
+                                        <option value="investment-cdb-large-bank">Título 90% CDI</option>
+                                        <option value="investment-cdb-medium-bank">Título 100% CDI</option>
+                                        <option value="investment-cdb-medium-bank">Título 110% CDI</option>
+                                        <option value="investment-others">Outro (Avançado)</option>
+                                    </select>
+                                </div>
+                            </span>
+                        </div>
+
+                        <div class="calculator-advanced-container">
+                            <div class="calculator-advanced-content">
+                                <h4 id="advaced-calculator">Avançado <i id="advanced-calculator-icon"
+                                        class="fa-solid fa-caret-down"></i></h4>
+                                <hr>
+
+                                <div class="hidden no">
+                                    <div class="grid-calculator-pair">
+                                        <span class="grid-calculator-content">
+                                            <div class="input-group-min">
+                                                <input required type="number" name="selic" id="selic" autocomplete="off"
+                                                    class="input-min">
+                                                <label class="user-label">Taxa de juros SELIC (%)</label>
+                                                <select class="calculator-select" name="selic-time" id="selic-time">
+                                                    <option value="selic-time-day">Diário</option>
+                                                    <option value="selic-time-month">Mensal</option>
+                                                    <option value="selic-time-year" selected>Anual</option>
+                                                </select>
+                                            </div>
+                                        </span>
+
+                                        <span class="grid-calculator-content">
+                                            <div class="input-group-min">
+                                                <input required type="number" name="ipca" id="ipca" autocomplete="off"
+                                                    class="input-min">
+                                                <label class="user-label">Inflação - IPCA (%)</label>
+                                                <select class="calculator-select" name="ipca-time" id="ipca-time">
+                                                    <option value="ipca-time-day">Diário</option>
+                                                    <option value="ipca-time-month">Mensal</option>
+                                                    <option value="ipca-time-year" selected>Anual</option>
+                                                </select>
+                                            </div>
+                                        </span>
+
+                                        <span class="grid-calculator-content">
+                                            <div class="input-group-min">
+                                                <input required type="number" name="performance" id="performance"
+                                                    autocomplete="off" class="input-min">
+                                                <label class="user-label">Rend. investimentos (%)</label>
+                                                <select class="calculator-select" name="performance-time"
+                                                    id="performance-time">
+                                                    <option value="performance-time-day">Diário</option>
+                                                    <option value="performance-time-month">Mensal</option>
+                                                    <option value="performance-time-year" selected>Anual</option>
+                                                </select>
+                                            </div>
+                                        </span>
+
+                                        <span class="grid-calculator-content">
+                                            <div class="input-group">
+                                                <input required type="number" name="income-tax" id="income-tax" autocomplete="off"
+                                                    class="input">
+                                                <label class="user-label">Imposto sobre investimento (%)</label>
+                                            </div>
+                                        </span>
+                                    </div>
+
+                                </div>
+                                <hr class="hidden no">
+
+                            </div>
+                        </div>
+
+                        <div class="button-container">
+                            <button class="button-primary" id="calculate">Calcular</button>
+                            <button class="button-clean" id="clean">Limpar</button>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-container">
+        <section class="footer-content content">
+            <a href="https://linktr.ee/ruangemmer" target="_blank" rel="noopener noreferrer">
+                <h6 class="footer-subtitle">
+                    Developed by
+                </h6>
+                <h5 class="footer-title">
+                    Ruan Gemmer
+                </h5>
+            </a>
+        </section>
+    </footer>
+
+</body>
+
+</html>
