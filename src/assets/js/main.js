@@ -8,8 +8,6 @@ function currentPage() {
     if (currentPageName === "simple_interest.html") {
         simpleInterst();
     }
-
-    console.log(currentPageName);
 }
 
 currentPage();
