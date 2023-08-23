@@ -54,16 +54,14 @@
     margin: 0 3rem;
 }
 
-.menu-calculator-content {
-    height: 92vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
 /* Header */
 .header-container{
     background-color: var(--color-gray-9);
+    height: fit-content;
+    position: relative;
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.5);
+
 }
 
 .header-content{
@@ -78,6 +76,13 @@
 }
 
 /* Card */
+.menu-calculator-content {
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .grid-card {
     width: 100%;
     display: grid;
