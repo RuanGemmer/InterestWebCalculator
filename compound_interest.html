@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css"
+        integrity="sha512-W/zrbCncQnky/EzL+/AYwTtosvrM+YG/V6piQLSe2HuKS6cmbw89kjYkp3tWFn1dkWV7L1ruvJyKbLz73Vlgfg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css"
+        integrity="sha512-siarrzI1u3pCqFG2LEzi87McrBmq6Tp7juVsdmGY1Dr8Saw+ZBAzDzrGwX3vgxX1NkioYNCFOVC0GpDPss10zQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css"
+        integrity="sha512-P9pgMgcSNlLb4Z2WAB2sH5KBKGnBfyJnq+bhcfLCFusrRc4XdXrhfDluBl/usq75NF5gTDIMcwI1GaG5gju+Mw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="shortcut icon" href="./assets/img/Calculator.svg" type="image/x-icon">
+
+    <link rel="stylesheet" href="./assets/css/remedy.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <title>Calculadora | Juros Compostos</title>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header-container">
+        <section class="header-content content">
+            <a href="/index.html">
+                <h2 class="header-title">
+                    <img class="header-icon" src="./assets/img/Calculator-white.svg" alt="image calculator">
+                    Calculadora
+                </h2>
+            </a>
+        </section>
+    </header>
+
+    <!-- Content -->
+    <div class="grow container">
+        <main class="menu-calculator-container">
+            <section class="calculator-content">
+                <div class="container-title">
+                    <div class="content-title-container">
+                        <h2 class="content-title">
+                            <img src="./assets/img/exponential.svg" alt="image linear graph">
+                            Calculadora de Juros Compostos
+                        </h2>
+                        <p class="content-subtitle">Calcule como seu dinheiro, empréstimo, rendimento ou dívida irá
+                            render com juros compostos</p>
+                        <p class="content-tips">Leia: o que são <a href="https://www.todamateria.com.br/juros-compostos/"
+                                target="_blank" rel="noopener noreferrer">JUROS COMPOSTOS</a>.</p>
+                    </div>
+                </div>
+
+                <div class="calculator-space-container">
+                    <div class="calculator-space-content">
+                        <div class="grid-calculator-pair">
+                            <span class="grid-calculator-content">
+                                <div class="input-group">
+                                    <input required type="number" name="initial-value" id="initial-value"
+                                        autocomplete="off" class="input">
+                                    <label class="user-label">Valor Inicial (R$)</label>
+                                </div>
+                            </span>
+
+                            <span class="grid-calculator-content">
+                                <div class="input-group-min">
+                                    <input required type="number" name="contribution" id="contribution" autocomplete="off"
+                                        class="input-min">
+                                    <label class="user-label">Aporte (R$)</label>
+                                    <select class="calculator-select" name="contribution-time" id="contribution-time">
+                                        <option value="contribution-time-day">Diário</option>
+                                        <option value="contribution-time-month">Mensal</option>
+                                        <option value="contribution-time-year" selected>Anual</option>
+                                    </select>
+                                </div>
+                            </span>
+
+                            <span class="grid-calculator-content">
+                                <div class="input-group-min">
+                                    <input required type="number" name="interest" id="interest" autocomplete="off"
+                                        class="input-min">
+                                    <label class="user-label">Taxa de Juros (%)</label>
+                                    <select class="calculator-select" name="interest-time" id="interest-time">
+                                        <option value="interest-time-day">Diário</option>
+                                        <option value="interest-time-month">Mensal</option>
+                                        <option value="interest-time-year" selected>Anual</option>
+                                    </select>
+                                </div>
+                            </span>
+
+                            <span class="grid-calculator-content">
+                                <div class="input-group-min">
+                                    <input required type="number" name="time" id="time" autocomplete="off"
+                                        class="input-min">
+                                    <label class="user-label">Período</label>
+                                    <select class="calculator-select" name="invested-time" id="invested-time">
+                                        <option value="invested-time-day">Dia(s)</option>
+                                        <option value="invested-time-month">Mês(es)</option>
+                                        <option value="invested-time-year" selected>Ano(s)</option>
+                                    </select>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="button-container">
+                            <button class="button-primary" id="calculate">Calcular</button>
+                            <button class="button-clean" id="clean">Limpar</button>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-container">
+        <section class="footer-content content">
+            <a href="https://linktr.ee/ruangemmer" target="_blank" rel="noopener noreferrer">
+                <h6 class="footer-subtitle">
+                    Developed by
+                </h6>
+                <h5 class="footer-title">
+                    Ruan Gemmer
+                </h5>
+            </a>
+        </section>
+    </footer>
+
+</body>
+
+</html>
