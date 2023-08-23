@@ -66,18 +66,21 @@
 
 .header-content{
     padding: var(--gap-small);
+    margin: 0 auto;
     display: flex;
     align-items: center;
 }
 
-.header-content h2{
+.header-content a, .header-content a h2{
     color: var(--color-white);
     margin: 0 auto;
+    text-decoration: none;
 }
 
 /* Card */
 .menu-calculator-content {
-    height: 85vh;
+    min-height: 85vh;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -91,6 +94,7 @@
     justify-items: center;
     align-items: center;
     justify-content: center;
+    margin: var(--gap-large) auto;
 }
 
 .card {
@@ -98,7 +102,7 @@
     height: 20rem;
     border-radius: 50px;
     background: #e0e0e0;
-    box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+    box-shadow: 2rem 2rem 6rem #bebebe, -2rem -2rem 6rem #ffffff;
     transition: all 300ms ease-in-out;
 }
 
@@ -153,8 +157,6 @@
     translate: -3rem -7rem; 
 }
 
-
-
 .card-content span p{
     translate: 0 -5rem;
 }
@@ -173,18 +175,19 @@
 .card:hover {
     transform: scale(1.1);
     filter: brightness(1.08);
-    box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
     cursor: pointer;
 }
 
 /* Footer */
 .footer-container {
     background-color: var(--color-gray-9);
+    
 }
 
 .footer-content {
-    padding: var(--gap-small) 0;
+    padding: var(--gap-small);
     color: var(--color-white);
+    margin: 0 auto;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
