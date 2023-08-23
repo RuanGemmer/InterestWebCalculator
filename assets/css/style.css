@@ -25,6 +25,7 @@
     --color-primary-80: #133853;
     --color-primary-70: #1c557d;
     --color-primary: #2c82bf;
+    --color-primary-05: #DBF0FF;
     --color-primary-10: #d5e8f6;
     --color-primary-25: #97c6e7;
     --color-primary-40: #59a4d9;
@@ -46,6 +47,7 @@
 
 body {
     font-family: "Roboto", sans-serif;
+    color: var(--color-black);
 }
 
 h1,
@@ -57,14 +59,29 @@ h6 {
     font-family: "Montserrat", sans-serif;
 }
 
+a {
+    color: var(--color-primary-light);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--color-gray-7);
+    text-decoration: none;
+}
+
 /* Content / Container */
 .container {
     background-color: var(--color-gray-02);
 }
 
 .content {
-    max-width: 144rem;
+    max-width: 120rem;
     margin: 0 3rem;
+}
+
+.container-title{
+    background-color: var(--color-primary-10);
+
 }
 
 /* Header */
@@ -87,6 +104,7 @@ h6 {
     color: var(--color-white);
     margin: 0 auto;
     text-decoration: none;
+    transition: all 300ms ease-in-out;
 }
 
 .header-title {
@@ -202,6 +220,48 @@ h6 {
     cursor: pointer;
 }
 
+/* Content */
+.calculator-content {
+    min-height: 85vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-title-container{
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 0 var(--gap-small);
+
+}
+
+.content-title{
+    display: flex;
+    align-items: center;
+}
+
+.content-title img{
+    width: 5rem;
+    margin-right: var(--gap-small);
+}
+
+.content-subtitle,
+.content-tips {
+    color: var(--color-gray-7);
+}
+
+.calculator-space-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: var(--gap-large);
+}
+
+.calculator-space-content{
+    border: 1px solid var(--color-gray-3);
+    min-width: 100rem;
+}
+
 /* Footer */
 .footer-container {
     background-color: var(--color-gray-9);
@@ -236,5 +296,5 @@ h6 {
 }
 
 .footer-content a:hover {
-    text-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+    text-shadow: 2rem 2rem 6rem #bebebe, -2rem -2rem 6rem #ffffff;
 }
