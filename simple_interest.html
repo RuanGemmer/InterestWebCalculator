@@ -22,6 +22,10 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap"
         rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
     <link rel="shortcut icon" href="./src/assets/img/Calculator.svg" type="image/x-icon">
 
     <link rel="stylesheet" href="./src/assets/css/remedy.css">
@@ -64,18 +68,18 @@
                 <div class="calculator-space-container">
                     <div class="calculator-space-content">
                         <div class="grid-calculator">
-                            <span class="grid-calculator-content">
+                            <div class="grid-calculator-content">
                                 <div class="input-group">
                                     <input required type="text" name="initial-value" id="initial-value"
-                                        autocomplete="off" class="input">
+                                        autocomplete="off" class="input initial-value">
                                     <label class="user-label">Valor Inicial (R$)</label>
                                 </div>
-                            </span>
+                            </div>
 
-                            <span class="grid-calculator-content">
+                            <div class="grid-calculator-content">
                                 <div class="input-group-min">
                                     <input required type="text" name="interest" id="interest" autocomplete="off"
-                                        class="input-min">
+                                        class="input-min interest">
                                     <label class="user-label">Taxa de Juros (%)</label>
                                     <select class="calculator-select" name="interest-time" id="interest-time">
                                         <option value="interest-time-day">Diário</option>
@@ -83,9 +87,9 @@
                                         <option value="interest-time-year" selected>Anual</option>
                                     </select>
                                 </div>
-                            </span>
+                            </div>
 
-                            <span class="grid-calculator-content">
+                            <div class="grid-calculator-content">
                                 <div class="input-group-min">
                                     <input required type="number" name="time" id="time" autocomplete="off"
                                         class="input-min">
@@ -96,7 +100,7 @@
                                         <option value="invested-time-year" selected>Ano(s)</option>
                                     </select>
                                 </div>
-                            </span>
+                            </div>
                         </div>
                         <div class="button-container">
                             <button class="button-primary" id="calculate">Calcular</button>
@@ -104,6 +108,29 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Results -->
+                <section class="hidden yes">
+                    <div class="margin-top-none calculator-space-container">
+                        <div class="calculator-space-content">
+                            <h4 class="grid-result-title">Resultado</h4>
+                            <div class="grid-calculator">
+                                <div class="result-container">
+                                    <h5 class="result-title">Valor total final:</h5>
+                                    <h2 class="result-value-0">R$ <span id="value-0"></span></h2>
+                                </div>
+                                <div class="result-container">
+                                    <h5 class="result-title">Valor total investido:</h5>
+                                    <h2 class="result-value-1">R$ <span id="value-1"></span></h2>
+                                </div>
+                                <div class="result-container">
+                                    <h5 class="result-title">Valor em juros:</h5>
+                                    <h2 class="result-value-2">R$ <span id="value-2"></span></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
             </section>
         </main>
