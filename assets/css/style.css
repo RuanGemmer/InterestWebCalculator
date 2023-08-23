@@ -251,6 +251,20 @@ a:hover {
     align-items: center;
 }
 
+.content-title .img-a,
+.content-title .img-b {
+    transform: scale(1);
+    margin: 0;
+}
+
+.content-title .img-a {
+    translate: -1.5rem 1rem;
+}
+
+.content-title .img-b {
+    translate: 1.5rem -1rem;
+}
+
 .content-title img {
     width: 5rem;
     margin-right: var(--gap-small);
@@ -307,7 +321,7 @@ a:hover {
 }
 
 /* Inputs */
-.input-group-select{
+.input-group-select {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -340,19 +354,18 @@ a:hover {
     cursor: pointer;
 }
 
-.calculator-select-x{
+.calculator-select-x {
     position: relative;
     top: -2.5rem;
 }
 
-
-.input-group-select p{
+.input-group-select p {
     position: relative;
     top: -1rem;
 }
 
 .input-group,
-.input-group-min{
+.input-group-min {
     position: relative;
     margin: var(--gap-small) auto;
 }
@@ -446,23 +459,23 @@ input:valid ~ label {
     padding: var(--gap-small);
 }
 
-.calculator-advanced-content h4{
+.calculator-advanced-content h4 {
     margin: 0;
     width: fit-content;
     color: var(--color-primary);
 }
 
-.calculator-advanced-content h4:hover{
+.calculator-advanced-content h4:hover {
     cursor: pointer;
     color: var(--color-gray-8);
 }
 
-.calculator-advanced-content hr{
+.calculator-advanced-content hr {
     color: var(--color-primary);
 }
 
-.hidden .yes{
-    display: none; 
+.hidden .yes {
+    display: none;
 }
 
 /* Buttons */
@@ -542,6 +555,12 @@ input:valid ~ label {
     text-shadow: 2rem 2rem 6rem #bebebe, -2rem -2rem 6rem #ffffff;
 }
 
+@media (max-width: 1100px) {
+    .grid-card {
+        grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+    }
+}
+
 @media (max-width: 1000px) {
     .grid-calculator {
         grid-template-columns: repeat(auto-fit, minmax(50rem, 1fr));
@@ -568,6 +587,10 @@ input:valid ~ label {
 }
 
 @media (max-width: 500px) {
+    .grid-card {
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    }
+
     .grid-calculator-pair {
         grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
     }
