@@ -22,16 +22,12 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-    <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <link rel="shortcut icon" href="./assets/img/Calculator.svg" type="image/x-icon">
 
-    <link rel="shortcut icon" href="./src/assets/img/Calculator.svg" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/css/remedy.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 
-    <link rel="stylesheet" href="./src/assets/css/remedy.css">
-    <link rel="stylesheet" href="./src/assets/css/style.css">
-
-    <title>Calculadora | Juros Simples</title>
+    <title>Calculadora | Total da compra parcelada</title>
 </head>
 
 <body>
@@ -41,7 +37,7 @@
         <section class="header-content content">
             <a href="/index.html">
                 <h2 class="header-title">
-                    <img class="header-icon" src="./src/assets/img/Calculator-white.svg" alt="image calculator">
+                    <img class="header-icon" src="./assets/img/Calculator-white.svg" alt="image calculator">
                     Calculadora
                 </h2>
             </a>
@@ -55,13 +51,12 @@
                 <div class="container-title">
                     <div class="content-title-container">
                         <h2 class="content-title">
-                            <img src="./src/assets/img/linear.svg" alt="image linear graph">
-                            Calculadora de Juros Simples
+                            <img src="./assets/img/percent.svg" alt="image linear graph">
+                            Valor total da compra parcelada
                         </h2>
-                        <p class="content-subtitle">Calcule como seu dinheiro, empréstimo, rendimento ou dívida irá
-                            render com juros simples</p>
-                        <p class="content-tips">Leia: o que são <a href="https://www.todamateria.com.br/juros-simples/"
-                                target="_blank" rel="noopener noreferrer">JUROS SIMPLES</a>.</p>
+                        <p class="content-subtitle">Calcule quanto você irá pagar no total da sua compra parcelada com os juros</p>
+                        <p class="content-tips">Leia: o que são <a href="https://www.todamateria.com.br/juros-compostos/"
+                                target="_blank" rel="noopener noreferrer">JUROS COMPOSTOS</a>.</p>
                     </div>
                 </div>
 
@@ -71,15 +66,15 @@
                             <div class="grid-calculator-content">
                                 <div class="input-group">
                                     <input required type="text" name="initial-value" id="initial-value"
-                                        autocomplete="off" class="input initial-value">
-                                    <label class="user-label">Valor Inicial (R$)</label>
+                                        autocomplete="off" class="input">
+                                    <label class="user-label">Valor da parcela (R$)</label>
                                 </div>
                             </div>
 
                             <div class="grid-calculator-content">
                                 <div class="input-group-min">
                                     <input required type="text" name="interest" id="interest" autocomplete="off"
-                                        class="input-min interest">
+                                        class="input-min">
                                     <label class="user-label">Taxa de Juros (%)</label>
                                     <select class="calculator-select" name="interest-time" id="interest-time">
                                         <option value="interest-time-day">Diário</option>
@@ -109,29 +104,6 @@
                     </div>
                 </div>
 
-                <!-- Results -->
-                <section class="hidden yes">
-                    <div class="margin-top-none calculator-space-container">
-                        <div class="calculator-space-content">
-                            <h4 class="grid-result-title">Resultado</h4>
-                            <div class="grid-calculator">
-                                <div class="result-container">
-                                    <h5 class="result-title">Valor total final:</h5>
-                                    <h2 class="result-value-0">R$ <span id="value-0"></span></h2>
-                                </div>
-                                <div class="result-container">
-                                    <h5 class="result-title">Valor total investido:</h5>
-                                    <h2 class="result-value-1">R$ <span id="value-1"></span></h2>
-                                </div>
-                                <div class="result-container">
-                                    <h5 class="result-title">Valor em juros:</h5>
-                                    <h2 class="result-value-2">R$ <span id="value-2"></span></h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
             </section>
         </main>
     </div>
@@ -150,7 +122,6 @@
         </section>
     </footer>
 
-    <script src="./src/dist/bundle.js"></script>
 </body>
 
 </html>

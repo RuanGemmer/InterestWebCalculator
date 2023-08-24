@@ -1,12 +1,39 @@
 {
-  "name": "webcalculator",
+  "name": "WebCalculator",
   "version": "1.0.0",
-  "description": "",
-  "main": "./src/assets/main.js",
+  "description": "My webpack project",
+  "main": "./src/assets/js/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run build:watch",
+    "build:watch": "webpack --watch",
+    "build:prod": "webpack --mode=production --node-env=production",
+    "build": "webpack --mode=production --node-env=production",
+    "build:dev": "webpack --mode=development",
+    "watch": "webpack --watch",
+    "serve": "webpack serve"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "Ruan Gemmer",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.22.10",
+    "@babel/preset-env": "^7.22.10",
+    "@types/node": "^20.5.4",
+    "@webpack-cli/generators": "^3.0.7",
+    "babel-loader": "^9.1.3",
+    "babel-preset-env": "^1.7.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.8.1",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.3",
+    "mini-css-extract-plugin": "^2.7.6",
+    "prettier": "^3.0.2",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  },
+  "dependencies": {
+    "path-browserify": "^1.0.1"
+  }
 }

@@ -22,12 +22,12 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap"
         rel="stylesheet">
 
-    <link rel="shortcut icon" href="./src/assets/img/Calculator.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="./assets/img/Calculator.svg" type="image/x-icon">
 
-    <link rel="stylesheet" href="./src/assets/css/remedy.css">
-    <link rel="stylesheet" href="./src/assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/remedy.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 
-    <title>Calculadora | Total da compra parcelada</title>
+    <title>Calculadora | Juros Compostos</title>
 </head>
 
 <body>
@@ -37,7 +37,7 @@
         <section class="header-content content">
             <a href="/index.html">
                 <h2 class="header-title">
-                    <img class="header-icon" src="./src/assets/img/Calculator-white.svg" alt="image calculator">
+                    <img class="header-icon" src="./assets/img/Calculator-white.svg" alt="image calculator">
                     Calculadora
                 </h2>
             </a>
@@ -51,10 +51,11 @@
                 <div class="container-title">
                     <div class="content-title-container">
                         <h2 class="content-title">
-                            <img src="./src/assets/img/percent.svg" alt="image linear graph">
-                            Valor total da compra parcelada
+                            <img src="./assets/img/exponential.svg" alt="image linear graph">
+                            Calculadora de Juros Compostos
                         </h2>
-                        <p class="content-subtitle">Calcule quanto você irá pagar no total da sua compra parcelada com os juros</p>
+                        <p class="content-subtitle">Calcule como seu dinheiro, empréstimo, rendimento ou dívida irá
+                            render com juros compostos</p>
                         <p class="content-tips">Leia: o que são <a href="https://www.todamateria.com.br/juros-compostos/"
                                 target="_blank" rel="noopener noreferrer">JUROS COMPOSTOS</a>.</p>
                     </div>
@@ -62,18 +63,31 @@
 
                 <div class="calculator-space-container">
                     <div class="calculator-space-content">
-                        <div class="grid-calculator">
+                        <div class="grid-calculator-pair">
                             <div class="grid-calculator-content">
                                 <div class="input-group">
                                     <input required type="text" name="initial-value" id="initial-value"
                                         autocomplete="off" class="input">
-                                    <label class="user-label">Valor da parcela (R$)</label>
+                                    <label class="user-label">Valor Inicial (R$)</label>
                                 </div>
                             </div>
 
                             <div class="grid-calculator-content">
                                 <div class="input-group-min">
-                                    <input required type="text" name="interest" id="interest" autocomplete="off"
+                                    <input required type="text" name="contribution" id="contribution" autocomplete="off"
+                                        class="input-min">
+                                    <label class="user-label">Aporte (R$)</label>
+                                    <select class="calculator-select" name="contribution-time" id="contribution-time">
+                                        <option value="contribution-time-day">Diário</option>
+                                        <option value="contribution-time-month">Mensal</option>
+                                        <option value="contribution-time-year" selected>Anual</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="grid-calculator-content">
+                                <div class="input-group-min">
+                                    <input required type="tex" name="interest" id="interest" autocomplete="off"
                                         class="input-min">
                                     <label class="user-label">Taxa de Juros (%)</label>
                                     <select class="calculator-select" name="interest-time" id="interest-time">
