@@ -9,7 +9,7 @@ import "../img/money.svg";
 import "../img/percent.svg";
 import { simpleInterest } from "./simple_interest";
 import { totalBuy } from "./total_buy";
-import { digitFormatToCurrency, formatPercentage } from "./utils";
+import { digitFormatToCurrency, formatPercentageToFloat } from "./utils";
 
 // Page init
 function currentPage() {
@@ -36,7 +36,7 @@ function globalEvent(functionPage) {
         const el = evt.target;
         if (el.classList.contains("button-primary")) {
             if (functionPage.testEmpty()) {
-                functionPage.calculateSimpleInterest();
+                functionPage.calc();
             }
         }
 
@@ -54,7 +54,7 @@ function globalEvent(functionPage) {
         }
 
         if (el.classList.contains("interest")) {
-            evt.target.value = formatPercentage(currentValue);
+            evt.target.value = formatPercentageToFloat(currentValue);
         }
     });
 }

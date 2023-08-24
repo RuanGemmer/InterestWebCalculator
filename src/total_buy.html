@@ -22,6 +22,11 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap"
         rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
     <link rel="shortcut icon" href="./assets/img/Calculator.svg" type="image/x-icon">
 
     <title>Calculadora | Total da compra parcelada</title>
@@ -51,9 +56,11 @@
                             <img src="./assets/img/percent.svg" alt="image linear graph">
                             Valor total da compra parcelada
                         </h2>
-                        <p class="content-subtitle">Calcule quanto você irá pagar no total da sua compra parcelada com os juros</p>
-                        <p class="content-tips">Leia: o que são <a href="https://www.todamateria.com.br/juros-compostos/"
-                                target="_blank" rel="noopener noreferrer">JUROS COMPOSTOS</a>.</p>
+                        <p class="content-subtitle">Calcule quanto você irá pagar no total da sua compra parcelada com
+                            os juros</p>
+                        <p class="content-tips">Leia: o que são <a
+                                href="https://www.todamateria.com.br/juros-compostos/" target="_blank"
+                                rel="noopener noreferrer">JUROS COMPOSTOS</a>.</p>
                     </div>
                 </div>
 
@@ -63,15 +70,15 @@
                             <div class="grid-calculator-content">
                                 <div class="input-group">
                                     <input required type="text" name="initial-value" id="initial-value"
-                                        autocomplete="off" class="input">
-                                    <label class="user-label">Valor à vista da compra (R$)</label>
+                                        autocomplete="off" class="input initial-value">
+                                    <label class="user-label">Valor da compra à vista (R$)</label>
                                 </div>
                             </div>
 
                             <div class="grid-calculator-content">
                                 <div class="input-group-min">
                                     <input required type="text" name="interest" id="interest" autocomplete="off"
-                                        class="input-min">
+                                        class="input-min interest">
                                     <label class="user-label">Taxa de Juros (%)</label>
                                     <select class="calculator-select" name="interest-time" id="interest-time">
                                         <option value="interest-time-day">Diário</option>
@@ -87,9 +94,9 @@
                                         class="input-min">
                                     <label class="user-label">Período</label>
                                     <select class="calculator-select" name="invested-time" id="invested-time">
-                                        <option value="invested-time-day">Dia(s)</option>
-                                        <option value="invested-time-month">Mês(es)</option>
-                                        <option value="invested-time-year" selected>Ano(s)</option>
+                                        <option value="dia">Dia(s)</option>
+                                        <option value="mês">Mês(es)</option>
+                                        <option value="ano" selected>Ano(s)</option>
                                     </select>
                                 </div>
                             </div>
@@ -106,18 +113,23 @@
                     <div class="margin-top-none calculator-space-container">
                         <div class="calculator-space-content">
                             <h4 class="grid-result-title">Resultado</h4>
-                            <div class="grid-calculator">
+                            <div class="grid-calculator-pair">
                                 <div class="result-container">
                                     <h5 class="result-title">Valor total da compra:</h5>
                                     <h2 class="result-value-0">R$ <span id="value-0"></span></h2>
                                 </div>
                                 <div class="result-container">
-                                    <h5 class="result-title">Valor de cada parcela:</h5>
+                                    <h5 class="result-title">Valor da parcela por <span id="installment-time"></span>:
+                                    </h5>
                                     <h2 class="result-value-1">R$ <span id="value-1"></span></h2>
                                 </div>
                                 <div class="result-container">
                                     <h5 class="result-title">Valor em juros:</h5>
                                     <h2 class="result-value-2">R$ <span id="value-2"></span></h2>
+                                </div>
+                                <div class="result-container">
+                                    <h5 class="result-title">Quanto a mais foi pago:</h5>
+                                    <h2 class="result-value-3"><span id="value-3"></span> %</h2>
                                 </div>
                             </div>
                         </div>

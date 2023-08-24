@@ -549,7 +549,8 @@ input:valid ~ label {
 
 .result-value-0,
 .result-value-1,
-.result-value-2 {
+.result-value-2,
+.result-value-3 {
     margin: 0 auto 2rem auto;
 }
 
@@ -559,6 +560,10 @@ input:valid ~ label {
 
 .result-value-1 {
     color: var(--color-primary-dark);
+}
+
+.result-value-3{
+    color: rgb(151, 3, 3);
 }
 
 /* Footer */
@@ -731,10 +736,7 @@ input:valid ~ label {
         translate: -2.5rem -4.2rem;
     }
 
-    .grid-calculator-pair {
-        grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
-    }
-
+    .grid-calculator-pair,
     .grid-calculator {
         grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
     }
@@ -761,7 +763,4 @@ input:valid ~ label {
         margin: var(--gap-medium) var(--gap-small);
         margin-top: 0;
     }
-}
-
-@media (max-width: 500px) {
 }

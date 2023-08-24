@@ -24,7 +24,12 @@ export function formatCurrencyToFloat(number) {
     return number.replace(",", ".");
 }
 
-export function formatPercentage(currentValue) {
+export function formatNumberBrazil(value) {
+    value = value.toFixed(2);
+    return value.replace(".", ",");
+}
+
+export function formatPercentageToFloat(currentValue) {
     const value = currentValue.replace(/[^0-9.,]/g, "");
     const strippedValue = value.replace(/[^\d,]/g, "");
     const parts = strippedValue.split(",");

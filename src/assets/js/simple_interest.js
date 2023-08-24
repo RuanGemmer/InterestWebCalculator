@@ -58,7 +58,7 @@ export function simpleInterest() {
         resultsContainer.classList.add("yes");
     }
 
-    function calculateSimpleInterest() {
+    function calc() {
         let interestDecimal = formatCurrencyToFloat(interest.value) / 100;
         let initialValueFloat = formatCurrencyToFloat(initialValue.value);
         let interestPerYear = convertCBInterest(
@@ -89,7 +89,7 @@ export function simpleInterest() {
 
     return {
         testEmpty,
-        calculateSimpleInterest,
+        calc,
         clearFields,
     };
 }
