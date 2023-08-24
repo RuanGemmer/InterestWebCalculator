@@ -10,36 +10,54 @@ const stylesHandler = MiniCssExtractPlugin.loader;
 
 const pages = [
     new HtmlWebpackPlugin({
-        chunks: ["home"],
+        chunks: ["index"],
         template: "./src/index.html",
         filename: "./index.html",
-        // Adicione a propriedade "minify" para minificar o HTML (opcional)
         minify: isProduction ? true : false,
-        // Adicione a propriedade "inject" para controlar onde os scripts e estilos são inseridos
         inject: true,
-        // Adicione a propriedade "chunks" para especificar quais chunks (arquivos JS) são usados nesta página
-        chunks: ["home"],
+        chunks: ["index"],
     }),
     new HtmlWebpackPlugin({
         chunks: ["simple_interest"],
         template: "./src/simple_interest.html",
         filename: "./simple_interest.html",
-        // Adicione a propriedade "minify" para minificar o HTML (opcional)
         minify: isProduction ? true : false,
-        // Adicione a propriedade "inject" para controlar onde os scripts e estilos são inseridos
         inject: true,
-        // Adicione a propriedade "chunks" para especificar quais chunks (arquivos JS) são usados nesta página
         chunks: ["simple_interest"],
+    }),
+    new HtmlWebpackPlugin({
+        chunks: ["cash_or_credit"],
+        template: "./src/cash_or_credit.html",
+        filename: "./cash_or_credit.html",
+        minify: isProduction ? true : false,
+        inject: true,
+        chunks: ["cash_or_credit"],
+    }),
+    new HtmlWebpackPlugin({
+        chunks: ["compound_interest"],
+        template: "./src/compound_interest.html",
+        filename: "./compound_interest.html",
+        minify: isProduction ? true : false,
+        inject: true,
+        chunks: ["compound_interest"],
+    }),
+    new HtmlWebpackPlugin({
+        chunks: ["total_buy"],
+        template: "./src/total_buy.html",
+        filename: "./total_buy.html",
+        minify: isProduction ? true : false,
+        inject: true,
+        chunks: ["total_buy"],
     }),
 ];
 
 const config = {
     entry: {
-        main: ["./src/assets/js/main.js"],
+        index: ["./src/assets/js/main.js"],
         simple_interest: ["./src/assets/js/main.js"],
-        // transforms: ["./assets/js/transforms.js"],
-        // utils: ["./assets/js/utils.js"],
-        // validation: ["./assets/js/validation.js"],
+        total_buy: ["./src/assets/js/main.js"],
+        compound_interest: ["./src/assets/js/main.js"],
+        cash_or_credit: ["./src/assets/js/main.js"],
     },
     output: {
         path: path.resolve(__dirname, "dist"),
