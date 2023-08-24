@@ -22,11 +22,23 @@ export function simpleInterst() {
 
     function testEmpty() {
         let hasEmpty = true;
-        if (!hasNotEmptyFields(initialValue, "VALOR INICIAL", "")) {
+        if (
+            !hasNotEmptyFields(
+                initialValue,
+                "VALOR INICIAL",
+                initialValue.value === ""
+            )
+        ) {
             hasEmpty = false;
         }
 
-        if (!hasNotEmptyFields(time, "PERÍODO", "", time.value < 0)) {
+        if (
+            !hasNotEmptyFields(
+                time,
+                "PERÍODO",
+                time.value === "" || time.value < 0
+            )
+        ) {
             hasEmpty = false;
         }
 
@@ -34,8 +46,8 @@ export function simpleInterst() {
             !hasNotEmptyFields(
                 interest,
                 "TAXA DE JUROS",
-                "",
-                isNaN(formatCurrencyToFloat(interest.value))
+                interest.value === "" ||
+                    isNaN(formatCurrencyToFloat(interest.value))
             )
         ) {
             hasEmpty = false;
@@ -54,17 +66,21 @@ export function simpleInterst() {
     }
 
     function calculateSimpleInterest() {
-        let interestDecimal = interest.value / 100;
+        let interestDecimal = formatCurrencyToFloat(interest.value) / 100;
         let initialValueFloat = formatCurrencyToFloat(initialValue.value);
         let interestPerYear = convertCBInterest(
             interestDecimal,
-            interestTimeCB.selectedIndex
+            interestTimeCB.selectedIndex,
+            "simple"
         );
         let timePerYear = convertoCBTime(
             time.value,
             investedTime.selectedIndex
         );
 
+        console.log(initialValueFloat);
+        console.log(interestPerYear);
+        console.log(timePerYear);
         let interestReceived =
             initialValueFloat * interestPerYear * timePerYear;
         let ammout = Number(initialValueFloat) + Number(interestReceived);

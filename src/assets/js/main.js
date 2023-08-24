@@ -8,6 +8,7 @@ import "../img/linear.svg";
 import "../img/money.svg";
 import "../img/percent.svg";
 import { simpleInterst } from "./simple_interest";
+import { totalBuy } from "./total_buy";
 
 function currentPage() {
     const currentPageOpen = window.location.pathname;
@@ -17,6 +18,10 @@ function currentPage() {
 
     if (currentPageName === "simple_interest.html") {
         simpleInterst();
+    }
+
+    if (currentPageName === "total_buy.html") {
+        totalBuy();
     }
 }
 
