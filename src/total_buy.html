@@ -64,7 +64,7 @@
                                 <div class="input-group">
                                     <input required type="text" name="initial-value" id="initial-value"
                                         autocomplete="off" class="input">
-                                    <label class="user-label">Valor da parcela (R$)</label>
+                                    <label class="user-label">Valor à vista da compra (R$)</label>
                                 </div>
                             </div>
 
@@ -100,6 +100,29 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Results -->
+                <section class="hidden yes">
+                    <div class="margin-top-none calculator-space-container">
+                        <div class="calculator-space-content">
+                            <h4 class="grid-result-title">Resultado</h4>
+                            <div class="grid-calculator">
+                                <div class="result-container">
+                                    <h5 class="result-title">Valor total da compra:</h5>
+                                    <h2 class="result-value-0">R$ <span id="value-0"></span></h2>
+                                </div>
+                                <div class="result-container">
+                                    <h5 class="result-title">Valor de cada parcela:</h5>
+                                    <h2 class="result-value-1">R$ <span id="value-1"></span></h2>
+                                </div>
+                                <div class="result-container">
+                                    <h5 class="result-title">Valor em juros:</h5>
+                                    <h2 class="result-value-2">R$ <span id="value-2"></span></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
             </section>
         </main>

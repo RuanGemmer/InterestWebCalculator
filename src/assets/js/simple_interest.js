@@ -1,20 +1,13 @@
 import { convertCBInterest, convertoCBTime } from "./transforms";
-import {
-    digitFormatToCurrency,
-    formatCurrencyToFloat,
-    formatPercentage,
-    formatToCurrency,
-} from "./utils";
+import { formatCurrencyToFloat, formatToCurrency } from "./utils";
 import { hasNotEmptyFields } from "./validation";
 
-export function simpleInterst() {
+export function simpleInterest() {
     const initialValue = document.querySelector("#initial-value");
     const interest = document.querySelector("#interest");
     const interestTimeCB = document.querySelector("#interest-time");
     const time = document.querySelector("#time");
     const investedTime = document.querySelector("#invested-time");
-    const calculateButton = document.querySelector("#calculate");
-    const cleanButton = document.querySelector("#clean");
     const resultsContainer = document.querySelector(".hidden");
     const result0 = document.querySelector("#value-0");
     const result1 = document.querySelector("#value-1");
@@ -78,9 +71,6 @@ export function simpleInterst() {
             investedTime.selectedIndex
         );
 
-        console.log(initialValueFloat);
-        console.log(interestPerYear);
-        console.log(timePerYear);
         let interestReceived =
             initialValueFloat * interestPerYear * timePerYear;
         let ammout = Number(initialValueFloat) + Number(interestReceived);
@@ -97,29 +87,9 @@ export function simpleInterst() {
         resultsContainer.scrollIntoView({ behavior: "smooth" });
     }
 
-    document.addEventListener("click", (evt) => {
-        const el = evt.target;
-        if (el.classList.contains("button-primary")) {
-            if (testEmpty()) {
-                calculateSimpleInterest();
-            }
-        }
-
-        if (el.classList.contains("button-clean")) {
-            clearFields();
-        }
-    });
-
-    document.addEventListener("input", (evt) => {
-        const el = evt.target;
-        const currentValue = evt.target.value;
-
-        if (el.classList.contains("initial-value")) {
-            evt.target.value = digitFormatToCurrency(currentValue);
-        }
-
-        if (el.classList.contains("interest")) {
-            evt.target.value = formatPercentage(currentValue);
-        }
-    });
+    return {
+        testEmpty,
+        calculateSimpleInterest,
+        clearFields,
+    };
 }
