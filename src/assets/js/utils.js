@@ -21,7 +21,7 @@ export function formatToCurrency(value) {
 
 export function formatCurrencyToFloat(number) {
     number = number.replace(/\./g, "");
-    return number.replace(",", ".");
+    return Number(number.replace(",", "."));
 }
 
 export function formatNumberBrazil(value) {

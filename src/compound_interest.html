@@ -70,28 +70,23 @@
                             <div class="grid-calculator-content">
                                 <div class="input-group">
                                     <input required type="text" name="initial-value" id="initial-value"
-                                        autocomplete="off" class="input">
+                                        autocomplete="off" class="input initial-value">
                                     <label class="user-label">Valor Inicial (R$)</label>
                                 </div>
                             </div>
 
                             <div class="grid-calculator-content">
-                                <div class="input-group-min">
+                                <div class="input-group">
                                     <input required type="text" name="contribution" id="contribution" autocomplete="off"
-                                        class="input-min">
-                                    <label class="user-label">Aporte (R$)</label>
-                                    <select class="calculator-select" name="contribution-time" id="contribution-time">
-                                        <option value="contribution-time-day">Diário</option>
-                                        <option value="contribution-time-month">Mensal</option>
-                                        <option value="contribution-time-year" selected>Anual</option>
-                                    </select>
+                                        class="input contribution">
+                                    <label class="user-label">Aporte Mensal (R$)</label>
                                 </div>
                             </div>
 
                             <div class="grid-calculator-content">
                                 <div class="input-group-min">
-                                    <input required type="tex" name="interest" id="interest" autocomplete="off"
-                                        class="input-min">
+                                    <input required type="text" name="interest" id="interest" autocomplete="off"
+                                        class="input-min interest">
                                     <label class="user-label">Taxa de Juros (%)</label>
                                     <select class="calculator-select" name="interest-time" id="interest-time">
                                         <option value="interest-time-day">Diário</option>
@@ -114,12 +109,36 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="button-container">
                             <button class="button-primary" id="calculate">Calcular</button>
                             <button class="button-clean" id="clean">Limpar</button>
                         </div>
                     </div>
                 </div>
+
+                <!-- Results -->
+                <section class="hidden yes">
+                    <div class="margin-top-none calculator-space-container">
+                        <div class="calculator-space-content">
+                            <h4 class="grid-result-title">Resultado</h4>
+                            <div class="grid-calculator">
+                                <div class="result-container">
+                                    <h5 class="result-title">Valor total final:</h5>
+                                    <h2 class="result-value-0">R$ <span id="value-0"></span></h2>
+                                </div>
+                                <div class="result-container">
+                                    <h5 class="result-title">Valor total investido:</h5>
+                                    <h2 class="result-value-1">R$ <span id="value-1"></span></h2>
+                                </div>
+                                <div class="result-container">
+                                    <h5 class="result-title">Valor dos juros:</h5>
+                                    <h2 class="result-value-2">R$ <span id="value-2"></span></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
             </section>
         </main>

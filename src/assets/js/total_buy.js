@@ -1,4 +1,4 @@
-import { convertCBInterest, convertoCBTime } from "./transforms";
+import { convertCBInterestToYear, convertoCBTimeToYear } from "./transforms";
 import {
     formatCurrencyToFloat,
     formatNumberBrazil,
@@ -67,12 +67,12 @@ export function totalBuy() {
     function calc() {
         let interestDecimal = formatCurrencyToFloat(interest.value) / 100;
         let initialValueFloat = formatCurrencyToFloat(initialValue.value);
-        let interestPerYear = convertCBInterest(
+        let interestPerYear = convertCBInterestToYear(
             interestDecimal,
             interestTimeCB.selectedIndex,
             "compound"
         );
-        let timePerYear = convertoCBTime(
+        let timePerYear = convertoCBTimeToYear(
             time.value,
             investedTime.selectedIndex
         );

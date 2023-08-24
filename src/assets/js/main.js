@@ -7,6 +7,7 @@ import "../img/exponential.svg";
 import "../img/linear.svg";
 import "../img/money.svg";
 import "../img/percent.svg";
+import { compoundInterest } from "./compound_interest";
 import { simpleInterest } from "./simple_interest";
 import { totalBuy } from "./total_buy";
 import { digitFormatToCurrency, formatPercentageToFloat } from "./utils";
@@ -25,6 +26,10 @@ function currentPage() {
 
     if (currentPageName === "total_buy.html") {
         simpleInterestInstance = totalBuy();
+    }
+
+    if (currentPageName === "compound_interest.html") {
+        simpleInterestInstance = compoundInterest();
     }
 
     globalEvent(simpleInterestInstance);
@@ -49,7 +54,10 @@ function globalEvent(functionPage) {
         const el = evt.target;
         const currentValue = evt.target.value;
 
-        if (el.classList.contains("initial-value")) {
+        if (
+            el.classList.contains("initial-value") ||
+            el.classList.contains("contribution")
+        ) {
             evt.target.value = digitFormatToCurrency(currentValue);
         }
 
