@@ -70,17 +70,17 @@
                         <div class="grid-calculator-pair">
                             <div class="grid-calculator-content">
                                 <div class="input-group">
-                                    <input required type="text" name="credit-value" id="credit-value" autocomplete="off"
-                                        class="input">
-                                    <label class="user-label">Valor da compra parcelada (R$)</label>
+                                    <input required type="text" name="term-purchase" id="term-purchase" autocomplete="off"
+                                        class="input term-purchase number-validation">
+                                    <label class="user-label">Valor total da compra parcelada (R$)</label>
                                 </div>
                                 <a href="./total_buy.html">Não sei o valor total da compra parcelada</a>
                             </div>
 
                             <div class="grid-calculator-content">
                                 <div class="input-group">
-                                    <input required type="text" name="cash-value" id="cash-value" autocomplete="off"
-                                        class="input">
+                                    <input required type="text" name="cash-purchase" id="cash-purchase" autocomplete="off"
+                                        class="input cash-purchase number-validation">
                                     <label class="user-label">Valor da compra à vista (R$)</label>
                                 </div>
                             </div>
@@ -89,7 +89,7 @@
                             <div class="grid-calculator-content">
                                 <div class="input-group">
                                     <input required type="number" name="installments" id="installments"
-                                        autocomplete="off" class="input">
+                                        autocomplete="off" class="input installments">
                                     <label class="user-label">Nº de parcelas</label>
                                 </div>
                             </div>
@@ -97,7 +97,7 @@
                             <div class="grid-calculator-content">
                                 <div class="input-group-select">
                                     <p>Onde você investe seu dinheiro?</p>
-                                    <select class="calculator-select-x" name="investment" id="investment">
+                                    <select class="calculator-select-x investment" name="investment" id="investment">
                                         <option value="investment-none" selected>Não invisto</option>
                                         <option value="investment-savings">Poupança</option>
                                         <option value="investment-selic">Tesouro SELIC - LFT</option>
@@ -113,16 +113,16 @@
 
                         <div class="calculator-advanced-container">
                             <div class="calculator-advanced-content">
-                                <h4 id="advaced-calculator">Avançado <i id="advanced-calculator-icon"
-                                        class="fa-solid fa-caret-down"></i></h4>
+                                <h4 id="advaced-calculator" class="advaced-calculator">Avançado <i id="advanced-calculator-icon"
+                                        class="advanced-calculator-icon fa-solid fa-caret-down"></i></h4>
                                 <hr>
 
-                                <div class="hidden no">
+                                <div class="hidden-advanced-div yes">
                                     <div class="grid-calculator-pair">
                                         <div class="grid-calculator-content">
                                             <div class="input-group-min">
                                                 <input required type="text" name="selic" id="selic" autocomplete="off"
-                                                    class="input-min">
+                                                    class="input-min selic percent-validation">
                                                 <label class="user-label">Taxa de juros SELIC (%)</label>
                                                 <select class="calculator-select" name="selic-time" id="selic-time">
                                                     <option value="selic-time-day">Diário</option>
@@ -135,7 +135,7 @@
                                         <div class="grid-calculator-content">
                                             <div class="input-group-min">
                                                 <input required type="text" name="ipca" id="ipca" autocomplete="off"
-                                                    class="input-min">
+                                                    class="input-min ipca percent-validation">
                                                 <label class="user-label">Inflação - IPCA (%)</label>
                                                 <select class="calculator-select" name="ipca-time" id="ipca-time">
                                                     <option value="ipca-time-day">Diário</option>
@@ -148,7 +148,7 @@
                                         <div class="grid-calculator-content">
                                             <div class="input-group-min">
                                                 <input required type="text" name="performance" id="performance"
-                                                    autocomplete="off" class="input-min">
+                                                    autocomplete="off" class="input-min performance percent-validation">
                                                 <label class="user-label">Rend. investimentos (%)</label>
                                                 <select class="calculator-select" name="performance-time"
                                                     id="performance-time">
@@ -162,14 +162,14 @@
                                         <div class="grid-calculator-content">
                                             <div class="input-group">
                                                 <input required type="text" name="income-tax" id="income-tax"
-                                                    autocomplete="off" class="input">
-                                                <label class="user-label">Imposto sobre investimento (%)</label>
+                                                    autocomplete="off" class="input income-tax percent-validation">
+                                                <label class="user-label">Imposto no resgate investimento (%)</label>
                                             </div>
                                         </div>
                                     </div>
 
                                 </div>
-                                <hr class="hidden no">
+                                <hr class="hidden-advanced-hr yes">
 
                             </div>
                         </div>
@@ -180,6 +180,29 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Results -->
+                <section class="hidden yes">
+                    <div class="margin-top-none calculator-space-container">
+                        <div class="calculator-space-content">
+                            <h4 class="grid-result-title">Resultado</h4>
+                            <div class="grid-calculator">
+                                <div class="result-container">
+                                    <h5 class="result-title">Valor total final:</h5>
+                                    <h2 class="result-value-0">R$ <span id="value-0"></span></h2>
+                                </div>
+                                <div class="result-container">
+                                    <h5 class="result-title">Valor total investido:</h5>
+                                    <h2 class="result-value-1">R$ <span id="value-1"></span></h2>
+                                </div>
+                                <div class="result-container">
+                                    <h5 class="result-title">Valor em juros:</h5>
+                                    <h2 class="result-value-2">R$ <span id="value-2"></span></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
             </section>
         </main>

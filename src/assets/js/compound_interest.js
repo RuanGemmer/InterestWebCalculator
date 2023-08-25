@@ -71,7 +71,6 @@ export function compoundInterest() {
         time.value = "";
         investedTimeCB.selectedIndex = 2;
         contribution.value = "";
-        contributionTimeCB.selectedIndex = 2;
 
         resultsContainer.classList.add("yes");
     }
@@ -95,7 +94,6 @@ export function compoundInterest() {
             time.value,
             investedTimeCB.selectedIndex
         );
-        console.log(interestPerMonth * timePerMonth);
 
         let ammout = initialValueFloat;
 

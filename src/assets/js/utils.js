@@ -40,3 +40,14 @@ export function formatPercentageToFloat(currentValue) {
 
     return formattedValue;
 }
+
+export function numberIsFloat(number) {
+    let decimalPlaces = number.toString().split(".")[1];
+
+    if (decimalPlaces) {
+        const threeDecimal = parseInt(decimalPlaces.substring(0, 3), 10);
+        return threeDecimal > 0;
+    }
+
+    return false;
+}

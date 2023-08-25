@@ -7,6 +7,7 @@ import "../img/exponential.svg";
 import "../img/linear.svg";
 import "../img/money.svg";
 import "../img/percent.svg";
+import { cashOrCredit } from "./cash_or_credit";
 import { compoundInterest } from "./compound_interest";
 import { simpleInterest } from "./simple_interest";
 import { totalBuy } from "./total_buy";
@@ -32,6 +33,10 @@ function currentPage() {
         simpleInterestInstance = compoundInterest();
     }
 
+    if (currentPageName === "cash_or_credit.html") {
+        simpleInterestInstance = cashOrCredit();
+    }
+
     globalEvent(simpleInterestInstance);
 }
 
@@ -48,21 +53,33 @@ function globalEvent(functionPage) {
         if (el.classList.contains("button-clean")) {
             functionPage.clearFields();
         }
+
+        if (
+            el.classList.contains("advaced-calculator") ||
+            el.classList.contains("advanced-calculator-icon")
+        ) {
+            functionPage.closeExpandAdvancedCalc();
+        }
     });
 
     document.addEventListener("input", (evt) => {
         const el = evt.target;
         const currentValue = evt.target.value;
 
-        if (
-            el.classList.contains("initial-value") ||
-            el.classList.contains("contribution")
-        ) {
+        if (el.classList.contains("number-validation")) {
             evt.target.value = digitFormatToCurrency(currentValue);
         }
 
-        if (el.classList.contains("interest")) {
+        if (el.classList.contains("percent-validation")) {
             evt.target.value = formatPercentageToFloat(currentValue);
+        }
+    });
+
+    document.addEventListener("change", (evt) => {
+        const el = evt.target;
+        if (el.classList.contains("investment")) {
+            const selectedOption = evt.target.value;
+            functionPage.othersInvestmentsSelected(selectedOption);
         }
     });
 }
