@@ -131,44 +131,8 @@ export function cashOrCredit() {
     }
 
     function calc() {
-        let interestDecimal = formatCurrencyToFloat(interest.value) / 100;
-        let initialValueFloat = formatCurrencyToFloat(initialValue.value);
-
-        let contributionFloat;
-        if (contribution.value === "") {
-            contributionFloat = 0;
-        } else {
-            contributionFloat = formatCurrencyToFloat(contribution.value);
-        }
-
-        let interestPerMonth = convertCBInterestToMonth(
-            interestDecimal,
-            interestTimeCB.selectedIndex
-        );
-        let timePerMonth = convertoCBTimeToMonth(
-            time.value,
-            investedTimeCB.selectedIndex
-        );
-
-        let ammout = initialValueFloat;
-
-        if (investedTimeCB.selectedIndex === 0) {
-            let timePerDay = timePerMonth * 30;
-            let contributionFloatPerDay = contributionFloat / 30;
-            for (let i = 0; i < timePerDay; i++) {
-                ammout *= 1 + interestCompoundPerMonthToDay(interestPerMonth);
-                ammout += contributionFloatPerDay;
-            }
-        } else {
-            for (let i = 0; i < timePerMonth; i++) {
-                ammout *= 1 + interestPerMonth;
-                ammout += contributionFloat;
-            }
-        }
-
-        let totalContribution =
-            initialValueFloat + contributionFloat * timePerMonth;
-        let insterestPaid = ammout - totalContribution;
+        let termBuyDecimal = formatCurrencyToFloat(termBuyValue.value);
+        let cashBuyDecimal = formatCurrencyToFloat(cashBuyValue.value);
 
         printResults(ammout, totalContribution, insterestPaid);
     }

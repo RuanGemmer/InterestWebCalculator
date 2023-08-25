@@ -1,0 +1,30 @@
+export function feedIndicators() {
+    // const indicatorTitle1 = document.querySelector("#indicator-title1");
+    // const indicatorValue1 = document.querySelector("#indicator-value1");
+    // const indicatorDate1 = document.querySelector("#indicator-date1");
+    // const indicatorTitle2 = document.querySelector("#indicator-title2");
+    // const indicatorValue2 = document.querySelector("#indicator-value2");
+    // const indicatorDate2 = document.querySelector("#indicator-date2");
+    // const indicatorTitle3 = document.querySelector("#indicator-title3");
+    // const indicatorValue3 = document.querySelector("#indicator-value3");
+    // const indicatorDate3 = document.querySelector("#indicator-date3");
+    // const indicatorTitle4 = document.querySelector("#indicator-title4");
+    // const indicatorValue4 = document.querySelector("#indicator-value4");
+    // const indicatorDate4 = document.querySelector("#indicator-date4");
+    // // const selicActualData = selicMetaAA();
+    // let selicFutureData = selicFutureAA();
+    // // const ipcaActualData = ipcaAA();
+    // let ipcaFutureData = ipcaFutureAA();
+    // // indicatorTitle1.innerHTML = `${selicActualData.indicator}: `;
+    // // indicatorValue1.innerHTML = `${selicActualData.value}%`;
+    // // indicatorDate1.innerHTML = selicActualData.dateObtained;
+    // // indicatorTitle2.innerHTML = `${ipcaActualData.indicator}: `;
+    // // indicatorValue2.innerHTML = `${ipcaActualData.value}%`;
+    // // indicatorDate2.innerHTML = ipcaActualData.dateObtained;
+    // indicatorTitle3.innerHTML = `${selicFutureData.indicator}: `;
+    // indicatorValue3.innerHTML = `${selicFutureData.value}%`;
+    // indicatorDate3.innerHTML = selicFutureData.dateObtained;
+    // indicatorTitle4.innerHTML = `${ipcaFutureData.indicator}: `;
+    // indicatorValue4.innerHTML = `${ipcaFutureData.value}%`;
+    // indicatorDate4.innerHTML = ipcaFutureData.dateObtained;
+}

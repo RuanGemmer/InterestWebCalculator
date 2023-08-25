@@ -50,6 +50,35 @@
     <div class="grow container">
         <main class="menu-calculator-container">
             <section class="calculator-content">
+
+                <!-- indicators -->
+                <div class="indicator-container">
+                    <div class="content-title-container display-flex-column">
+                        <div class="display-flex-row">
+                            <div class="indicator-datas">
+                                <h5 id="#indicator-title1"></h5>
+                                <p id="#indicator-value1"></p>
+                                <p id="#indicator-date1"></p>
+                            </div>
+                            <div class="indicator-datas border-left">
+                                <h5 id="#indicator-title2"></h5>
+                                <p id="#indicator-value2"></p>
+                                <p id="#indicator-date2"></p>
+                            </div>
+                            <div class="indicator-datas border-left">
+                                <h5 id="#indicator-title3"></h5>
+                                <p id="#indicator-value3"></p>
+                                <p id="#indicator-date3"></p>
+                            </div>
+                            <div class="indicator-datas border-left">
+                                <h5 id="#indicator-title4"></h5>
+                                <p id="#indicator-value4"></p>
+                                <p id="#indicator-date4"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="container-title">
                     <div class="content-title-container">
                         <h2 class="content-title">
@@ -70,8 +99,8 @@
                         <div class="grid-calculator-pair">
                             <div class="grid-calculator-content">
                                 <div class="input-group">
-                                    <input required type="text" name="term-purchase" id="term-purchase" autocomplete="off"
-                                        class="input term-purchase number-validation">
+                                    <input required type="text" name="term-purchase" id="term-purchase"
+                                        autocomplete="off" class="input term-purchase number-validation">
                                     <label class="user-label">Valor total da compra parcelada (R$)</label>
                                 </div>
                                 <a href="./total_buy.html">Não sei o valor total da compra parcelada</a>
@@ -79,8 +108,8 @@
 
                             <div class="grid-calculator-content">
                                 <div class="input-group">
-                                    <input required type="text" name="cash-purchase" id="cash-purchase" autocomplete="off"
-                                        class="input cash-purchase number-validation">
+                                    <input required type="text" name="cash-purchase" id="cash-purchase"
+                                        autocomplete="off" class="input cash-purchase number-validation">
                                     <label class="user-label">Valor da compra à vista (R$)</label>
                                 </div>
                             </div>
@@ -101,10 +130,10 @@
                                         <option value="investment-none" selected>Não invisto</option>
                                         <option value="investment-savings">Poupança</option>
                                         <option value="investment-selic">Tesouro SELIC - LFT</option>
-                                        <option value="investment-cdb-large-bank">Título 80% CDI</option>
-                                        <option value="investment-cdb-large-bank">Título 90% CDI</option>
-                                        <option value="investment-cdb-medium-bank">Título 100% CDI</option>
-                                        <option value="investment-cdb-medium-bank">Título 110% CDI</option>
+                                        <option value="investment-80-cdi">Título CDB 80% CDI</option>
+                                        <option value="investment-90-cdi">Título CDB 90% CDI</option>
+                                        <option value="investment-100-cdi">Título CDB 100% CDI</option>
+                                        <option value="investment-1100-cdi">Título CDB 110% CDI</option>
                                         <option value="investment-others">Outro (Avançado)</option>
                                     </select>
                                 </div>
@@ -113,7 +142,8 @@
 
                         <div class="calculator-advanced-container">
                             <div class="calculator-advanced-content">
-                                <h4 id="advaced-calculator" class="advaced-calculator">Avançado <i id="advanced-calculator-icon"
+                                <h4 id="advaced-calculator" class="advaced-calculator">Avançado <i
+                                        id="advanced-calculator-icon"
                                         class="advanced-calculator-icon fa-solid fa-caret-down"></i></h4>
                                 <hr>
 
@@ -125,7 +155,6 @@
                                                     class="input-min selic percent-validation">
                                                 <label class="user-label">Taxa de juros SELIC (%)</label>
                                                 <select class="calculator-select" name="selic-time" id="selic-time">
-                                                    <option value="selic-time-day">Diário</option>
                                                     <option value="selic-time-month">Mensal</option>
                                                     <option value="selic-time-year" selected>Anual</option>
                                                 </select>
@@ -138,7 +167,6 @@
                                                     class="input-min ipca percent-validation">
                                                 <label class="user-label">Inflação - IPCA (%)</label>
                                                 <select class="calculator-select" name="ipca-time" id="ipca-time">
-                                                    <option value="ipca-time-day">Diário</option>
                                                     <option value="ipca-time-month">Mensal</option>
                                                     <option value="ipca-time-year" selected>Anual</option>
                                                 </select>
@@ -152,7 +180,6 @@
                                                 <label class="user-label">Rend. investimentos (%)</label>
                                                 <select class="calculator-select" name="performance-time"
                                                     id="performance-time">
-                                                    <option value="performance-time-day">Diário</option>
                                                     <option value="performance-time-month">Mensal</option>
                                                     <option value="performance-time-year" selected>Anual</option>
                                                 </select>

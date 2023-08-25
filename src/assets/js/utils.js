@@ -51,3 +51,30 @@ export function numberIsFloat(number) {
 
     return false;
 }
+
+export function convertDateToBrazil(date) {
+    const dateOriginal = date.toString();
+    const dateObject = new Date(dateOriginal);
+
+    const day = dateObject.getDate();
+    const month = dateObject.getMonth() + 1;
+    const year = dateObject.getFullYear();
+
+    return `${day}/${month}/${year}`;
+}
+
+export function getActualDateBrazil() {
+    const dateObject = new Date();
+
+    const day = dateObject.getDate();
+    const month = dateObject.getMonth() + 1;
+    const year = dateObject.getFullYear();
+
+    return `${day}/${month}/${year}`;
+}
+
+export function getNextYear() {
+    const actualDate = new Date();
+    const actualYear = Number(actualDate.getFullYear());
+    return Number(actualYear + 1);
+}

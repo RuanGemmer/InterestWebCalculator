@@ -9,6 +9,7 @@ import "../img/money.svg";
 import "../img/percent.svg";
 import { cashOrCredit } from "./cash_or_credit";
 import { compoundInterest } from "./compound_interest";
+import { feedIndicators } from "./indicators";
 import { simpleInterest } from "./simple_interest";
 import { totalBuy } from "./total_buy";
 import { digitFormatToCurrency, formatPercentageToFloat } from "./utils";
@@ -35,6 +36,7 @@ function currentPage() {
 
     if (currentPageName === "cash_or_credit.html") {
         simpleInterestInstance = cashOrCredit();
+        feedIndicators();
     }
 
     globalEvent(simpleInterestInstance);
