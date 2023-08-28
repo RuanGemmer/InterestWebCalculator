@@ -577,16 +577,21 @@ input:valid ~ label {
     border-left: 2px solid var(--color-white);
 }
 
-.indicator-datas p {
+.indicator-datas .indicator-numbers {
     margin-left: var(--gap-smaller);
     text-align: center;
     justify-items: center;
     font-size: 1.4rem;
 }
 
-.indicator-datas p,
-.indicator-datas h5 {
+.indicator-datas .indicator-numbers,
+.indicator-datas .indicator-title {
     margin: 0 auto;
+}
+
+.indicator-datas .indicator-title {
+    font-size: 1.4rem;
+    font-weight: bold;
 }
 
 /* Results */
@@ -854,12 +859,12 @@ input:valid ~ label {
         margin-top: 0;
     }
 
-    .indicator-datas p {
+    .indicator-datas .indicator-numbers {
         font-size: 1rem;
     }
 
-    .indicator-datas h5 {
-        font-size: 1.3rem;
+    .indicator-datas .indicator-title {
+        font-size: 1rem;
     }
 }
 

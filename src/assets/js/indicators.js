@@ -44,7 +44,7 @@ async function selicActual() {
     indicator1.classList.remove("fa-spinner");
     indicator1.classList.remove("fa-spin-pulse");
 
-    indicatorTitle1.innerHTML = `${selicActualData.indicator}: `;
+    indicatorTitle1.innerHTML = `${selicActualData.indicator}:&nbsp`;
     indicatorValue1.innerHTML = `${selicActualData.value.replace(".", ",")}%`;
     indicatorDate1.innerHTML = selicActualData.dateObtained;
 }
@@ -62,7 +62,7 @@ async function ipcaActual() {
     indicator2.classList.remove("fa-spin-pulse");
     indicator2.classList.add("border-left");
 
-    indicatorTitle2.innerHTML = `${ipcaActualData.indicator}: `;
+    indicatorTitle2.innerHTML = `${ipcaActualData.indicator}:&nbsp`;
     indicatorValue2.innerHTML = `${ipcaActualData.value.replace(".", ",")}%`;
     indicatorDate2.innerHTML = ipcaActualData.dateObtained;
 }
@@ -80,7 +80,7 @@ async function selicFuture() {
     indicator3.classList.remove("fa-spin-pulse");
     indicator3.classList.add("border-left");
 
-    indicatorTitle3.innerHTML = `${selicFutureData.indicator}: `;
+    indicatorTitle3.innerHTML = `${selicFutureData.indicator}:&nbsp`;
     indicatorValue3.innerHTML = `${formatNumberBrazil(selicFutureData.value)}%`;
     indicatorDate3.innerHTML = selicFutureData.dateObtained;
 }
@@ -98,7 +98,7 @@ async function ipcaFuture() {
     indicator4.classList.remove("fa-spin-pulse");
     indicator4.classList.add("border-left");
 
-    indicatorTitle4.innerHTML = `${ipcaFutureData.indicator}: `;
+    indicatorTitle4.innerHTML = `${ipcaFutureData.indicator}:&nbsp`;
     indicatorValue4.innerHTML = `${formatNumberBrazil(ipcaFutureData.value)}%`;
     indicatorDate4.innerHTML = ipcaFutureData.dateObtained;
 }

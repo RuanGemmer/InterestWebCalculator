@@ -31,7 +31,7 @@ export async function selicFutureAA() {
         "https://olinda.bcb.gov.br/olinda/servico/Expectativas/versao/v1/odata/ExpectativasMercadoTop5Anuais?$top=5&$filter=Indicador%20eq%20'Selic'&$orderby=Data%20desc&$format=json&$select=Indicador,Data,DataReferencia,Media";
     const apiKey = "dsjknverui!@151#54cd@FD";
     try {
-        let back = await requestToApiFocus(url, apiKey, "432f", `*SELIC F`);
+        let back = await requestToApiFocus(url, apiKey, "432f", `SELIC F`);
         return back;
     } catch (error) {
         console.error("Erro:", error);
@@ -44,7 +44,7 @@ export async function ipcaFutureAA() {
         "https://olinda.bcb.gov.br/olinda/servico/Expectativas/versao/v1/odata/ExpectativasMercadoTop5Anuais?$top=5&$filter=Indicador%20eq%20'IPCA'&$orderby=Data%20desc&$format=json&$select=Indicador,Data,DataReferencia,Media";
     const apiKey = "dsjknverui!@151#54cd@FD";
     try {
-        let back = await requestToApiFocus(url, apiKey, "13522f", `*IPCA F`);
+        let back = await requestToApiFocus(url, apiKey, "13522f", `IPCA F`);
         return back;
     } catch (error) {
         console.error("Erro:", error);
