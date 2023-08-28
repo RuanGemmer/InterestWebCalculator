@@ -119,11 +119,11 @@ export function cashOrCredit() {
         installments.value = "";
         investmentCB.selectedIndex = 0;
         userSelic.value = "";
-        userSelicTimeCB.selectedIndex = 2;
+        userSelicTimeCB.selectedIndex = 1;
         userIpca.value = "";
-        userIpcaTimeCB.selectedIndex = 2;
+        userIpcaTimeCB.selectedIndex = 1;
         performance.value = "";
-        performanceTimeCB.selectedIndex = 2;
+        performanceTimeCB.selectedIndex = 1;
         userIncomeTax.value = "";
 
         collapseAdvanceCalc();

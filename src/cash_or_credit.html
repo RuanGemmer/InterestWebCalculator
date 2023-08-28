@@ -4,10 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Payment Calculator: Cash or Installments?
+    Calculate the best way to pay for your purchases!">
+    <meta name="author" content="Ruan Gemmer - 2023">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Interests Calculator">
+    <meta property="og:description"
+        content="Interest Calculator. Calculate simple interest, compound interest, the total amount of a purchase in installments or whether it is worth buying in cash or in installments.">
+    <meta property="og:image" content="https://unsplash.com/pt-br/fotografias/X4VwfPzy_2o">
+    <meta property="og:url" content="https://web-calculator-murex.vercel.app/">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css"
-        integrity="sha512-W/zrbCncQnky/EzL+/AYwTtosvrM+YG/V6piQLSe2HuKS6cmbw89kjYkp3tWFn1dkWV7L1ruvJyKbLz73Vlgfg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css"
         integrity="sha512-siarrzI1u3pCqFG2LEzi87McrBmq6Tp7juVsdmGY1Dr8Saw+ZBAzDzrGwX3vgxX1NkioYNCFOVC0GpDPss10zQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -22,12 +28,11 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
     <link rel="shortcut icon" href="./assets/img/Calculator.svg" type="image/x-icon">
-
 
     <title>Calculadora | À Vista ou Parcelado?</title>
 </head>
@@ -101,7 +106,8 @@
                                 <div class="input-group">
                                     <input required type="text" name="term-purchase" id="term-purchase"
                                         autocomplete="off" class="input term-purchase number-validation">
-                                    <label class="user-label">Valor total da compra parcelada (R$)</label>
+                                    <label class="user-label" for="term-purchase">Valor total da compra parcelada
+                                        (R$)</label>
                                 </div>
                                 <a href="./total_buy.html">Não sei o valor total da compra parcelada</a>
                             </div>
@@ -110,7 +116,7 @@
                                 <div class="input-group">
                                     <input required type="text" name="cash-purchase" id="cash-purchase"
                                         autocomplete="off" class="input cash-purchase number-validation">
-                                    <label class="user-label">Valor da compra à vista (R$)</label>
+                                    <label class="user-label" for="cash-purchase">Valor da compra à vista (R$)</label>
                                 </div>
                             </div>
 
@@ -119,7 +125,7 @@
                                 <div class="input-group">
                                     <input required type="number" name="installments" id="installments"
                                         autocomplete="off" class="input installments">
-                                    <label class="user-label">Nº de parcelas</label>
+                                    <label class="user-label" for="installments">Nº de parcelas</label>
                                 </div>
                             </div>
 
@@ -153,7 +159,7 @@
                                             <div class="input-group-min">
                                                 <input required type="text" name="selic" id="selic" autocomplete="off"
                                                     class="input-min selic percent-validation">
-                                                <label class="user-label">Taxa de juros SELIC (%)</label>
+                                                <label class="user-label" for="selic">Taxa de juros SELIC (%)</label>
                                                 <select class="calculator-select" name="selic-time" id="selic-time">
                                                     <option value="selic-time-month">Mensal</option>
                                                     <option value="selic-time-year" selected>Anual</option>
@@ -165,7 +171,7 @@
                                             <div class="input-group-min">
                                                 <input required type="text" name="ipca" id="ipca" autocomplete="off"
                                                     class="input-min ipca percent-validation">
-                                                <label class="user-label">Inflação - IPCA (%)</label>
+                                                <label class="user-label" for="ipca">Inflação - IPCA (%)</label>
                                                 <select class="calculator-select" name="ipca-time" id="ipca-time">
                                                     <option value="ipca-time-month">Mensal</option>
                                                     <option value="ipca-time-year" selected>Anual</option>
@@ -177,7 +183,8 @@
                                             <div class="input-group-min">
                                                 <input required type="text" name="performance" id="performance"
                                                     autocomplete="off" class="input-min performance percent-validation">
-                                                <label class="user-label">Rend. investimentos (%)</label>
+                                                <label class="user-label" for="performance">Rend. investimentos
+                                                    (%)</label>
                                                 <select class="calculator-select" name="performance-time"
                                                     id="performance-time">
                                                     <option value="performance-time-month">Mensal</option>
@@ -190,7 +197,8 @@
                                             <div class="input-group">
                                                 <input required type="text" name="income-tax" id="income-tax"
                                                     autocomplete="off" class="input income-tax percent-validation">
-                                                <label class="user-label">Imposto no resgate investimento (%)</label>
+                                                <label class="user-label" for="income-tax">Imposto no resgate
+                                                    investimento (%)</label>
                                             </div>
                                         </div>
                                     </div>
