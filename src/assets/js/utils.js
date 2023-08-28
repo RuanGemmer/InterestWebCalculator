@@ -56,9 +56,17 @@ export function convertDateToBrazil(date) {
     const dateOriginal = date.toString();
     const dateObject = new Date(dateOriginal);
 
-    const day = dateObject.getDate();
-    const month = dateObject.getMonth() + 1;
+    let day = dateObject.getDate();
+    let month = dateObject.getMonth() + 1;
     const year = dateObject.getFullYear();
+
+    if (month < 10) {
+        month = `0${month}`;
+    }
+
+    if (day < 10) {
+        day = `0${day}`;
+    }
 
     return `${day}/${month}/${year}`;
 }
@@ -66,10 +74,17 @@ export function convertDateToBrazil(date) {
 export function getActualDateBrazil() {
     const dateObject = new Date();
 
-    const day = dateObject.getDate();
-    const month = dateObject.getMonth() + 1;
+    let day = dateObject.getDate();
+    let month = dateObject.getMonth() + 1;
     const year = dateObject.getFullYear();
 
+    if (month < 10) {
+        month = `0${month}`;
+    }
+
+    if (day < 10) {
+        day = `0${day}`;
+    }
     return `${day}/${month}/${year}`;
 }
 

@@ -36,10 +36,17 @@ function currentPage() {
 
     if (currentPageName === "cash_or_credit.html") {
         simpleInterestInstance = cashOrCredit();
-        feedIndicators();
+        simpleInterestInstance.addLoaders();
+        awaitFunctions(currentPageName);
     }
 
     globalEvent(simpleInterestInstance);
+}
+
+async function awaitFunctions(currentPageName) {
+    if (currentPageName === "cash_or_credit.html") {
+        await feedIndicators();
+    }
 }
 
 // Global event listener

@@ -146,11 +146,35 @@ export function cashOrCredit() {
         resultsContainer.scrollIntoView({ behavior: "smooth" });
     }
 
+    function addLoaders() {
+        const indicator1 = document.querySelector(".indicator1");
+        const indicator2 = document.querySelector(".indicator2");
+        const indicator3 = document.querySelector(".indicator3");
+        const indicator4 = document.querySelector(".indicator4");
+
+        indicator1.classList.add("fa-solid");
+        indicator1.classList.add("fa-spinner");
+        indicator1.classList.add("fa-spin-pulse");
+
+        indicator2.classList.add("fa-solid");
+        indicator2.classList.add("fa-spinner");
+        indicator2.classList.add("fa-spin-pulse");
+
+        indicator3.classList.add("fa-solid");
+        indicator3.classList.add("fa-spinner");
+        indicator3.classList.add("fa-spin-pulse");
+
+        indicator4.classList.add("fa-solid");
+        indicator4.classList.add("fa-spinner");
+        indicator4.classList.add("fa-spin-pulse");
+    }
+
     return {
         testEmpty,
         calc,
         clearFields,
         closeExpandAdvancedCalc,
         othersInvestmentsSelected,
+        addLoaders,
     };
 }
