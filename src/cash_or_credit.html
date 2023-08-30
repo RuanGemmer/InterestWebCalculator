@@ -94,8 +94,8 @@
                         <p class="content-subtitle">Calcule qual a melhor maneira de fazer o pagamento das suas compras!
                         </p>
                         <p class="content-tips">Leia: o que é <a
-                                href="https://www.topinvest.com.br/glossario/valor-presente/" target="_blank"
-                                rel="noopener noreferrer">VALOR PRESENTE</a>.</p>
+                                href="https://blog.inco.vc/investimentos/rentabilidade-real/" target="_blank"
+                                rel="noopener noreferrer">RENTABILIDADE REAL</a>.</p>
                     </div>
                 </div>
 
@@ -158,13 +158,13 @@
 
                                 <div class="hidden-advanced-div yes">
                                     <div class="grid-calculator-pair">
-                                        
+
                                         <div class="grid-calculator-content">
                                             <div class="input-group-min">
-                                                <input required type="text" name="ipca" id="ipca" autocomplete="off"
+                                                <input disabled="true" required type="text" name="ipca" id="ipca" autocomplete="off"
                                                     class="input-min ipca percent-validation">
                                                 <label class="user-label" for="ipca">Inflação - IPCA (%)</label>
-                                                <select class="calculator-select" name="ipca-time" id="ipca-time">
+                                                <select disabled="true" class="calculator-select" name="ipca-time" id="ipca-time">
                                                     <option value="ipca-time-month">Mensal</option>
                                                     <option value="ipca-time-year" selected>Anual</option>
                                                 </select>
@@ -173,11 +173,11 @@
 
                                         <div class="grid-calculator-content">
                                             <div class="input-group-min">
-                                                <input required type="text" name="performance" id="performance"
+                                                <input disabled="true" required type="text" name="performance" id="performance"
                                                     autocomplete="off" class="input-min performance percent-validation">
                                                 <label class="user-label" for="performance">Rend. investimentos
                                                     (%)</label>
-                                                <select class="calculator-select" name="performance-time"
+                                                <select disabled="true" class="calculator-select" name="performance-time"
                                                     id="performance-time">
                                                     <option value="performance-time-month">Mensal</option>
                                                     <option value="performance-time-year" selected>Anual</option>
@@ -187,7 +187,7 @@
 
                                         <div class="grid-calculator-content">
                                             <div class="input-group">
-                                                <input required type="text" name="income-tax" id="income-tax"
+                                                <input disabled="true" required type="text" name="income-tax" id="income-tax"
                                                     autocomplete="off" class="input income-tax percent-validation">
                                                 <label class="user-label" for="income-tax">Imposto no resgate
                                                     investimento (%)</label>
@@ -215,16 +215,24 @@
                             <h4 class="grid-result-title">Resultado</h4>
                             <div class="grid-calculator">
                                 <div class="result-container">
-                                    <h5 class="result-title">Valor total final:</h5>
-                                    <h2 class="result-value-0">R$ <span id="value-0"></span></h2>
+                                    <h5 class="result-title">Valor de juros real na compra à vista:</h5>
+                                    <h2 class="result-value-2 cash">R$ <span id="value-2"></span></h2>
                                 </div>
                                 <div class="result-container">
-                                    <h5 class="result-title">Valor total investido:</h5>
-                                    <h2 class="result-value-1">R$ <span id="value-1"></span></h2>
+                                    <h5 class="result-title">Valor total do bem à vista:</h5>
+                                    <h2 class="result-value-0 cash">R$ <span id="value-0"></span></h2>
                                 </div>
                                 <div class="result-container">
-                                    <h5 class="result-title">Valor em juros:</h5>
-                                    <h2 class="result-value-2">R$ <span id="value-2"></span></h2>
+                                    <h5 class="result-title">Valor de juros real na compra à prazo:</h5>
+                                    <h2 class="result-value-3 cash">R$ <span id="value-3"></span></h2>
+                                </div>                                
+                                <div class="result-container">
+                                    <h5 class="result-title">Valor total do bem parcelado:</h5>
+                                    <h2 class="result-value-1 cash">R$ <span id="value-1"></span></h2>
+                                </div>
+                                <div class="result-container">
+                                    <h5 class="result-title">Você deve comprar</h5>
+                                    <h2 class="result-value-4 cash"><span id="value-4"></span></h2>
                                 </div>
                             </div>
                         </div>

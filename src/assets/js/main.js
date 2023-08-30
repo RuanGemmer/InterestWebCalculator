@@ -88,7 +88,7 @@ function globalEvent(functionPage) {
         const el = evt.target;
         if (el.classList.contains("investment")) {
             const selectedOption = evt.target.value;
-            functionPage.othersInvestmentsSelected(selectedOption);
+            functionPage.investmentsSelected(selectedOption);
         }
     });
 }

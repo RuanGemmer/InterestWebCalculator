@@ -628,6 +628,7 @@ input:valid ~ label {
 .result-title {
     margin: 2rem auto 1rem auto;
     color: var(--color-gray-4);
+    text-align: center;
 }
 
 .result-value-0,
@@ -656,8 +657,19 @@ input:valid ~ label {
     color: var(--color-primary-dark);
 }
 
-.result-value-3 {
+.result-value-3,
+.result-value-4.cash {
     color: rgb(151, 3, 3);
+}
+
+.result-value-2.cash,
+.result-value-0.cash {
+    color: var(--color-primary-light);
+}
+
+.result-value-1.cash,
+.result-value-3.cash {
+    color: var(--color-primary-dark);
 }
 
 /* Footer */
