@@ -1,5 +1,22 @@
-import { formatCurrencyToFloat } from "./utils";
+import { interestCompoundPerYearToMonth } from "./transforms";
+import { formatCurrencyToFloat, getIrpfInterestBrazil } from "./utils";
 import { hasNotEmptyFields } from "./validation";
+let selicActual;
+let ipcaActual;
+let selicFuture;
+let ipcaFuture;
+
+export function getIndicators(
+    actualSelic,
+    actualIpca,
+    futureSelic,
+    futureIpca
+) {
+    selicActual = actualSelic;
+    ipcaActual = actualIpca;
+    selicFuture = parseFloat(futureSelic.toFixed(2));
+    ipcaFuture = parseFloat(futureIpca.toFixed(2));
+}
 
 export function cashOrCredit() {
     // User Variables
@@ -7,8 +24,6 @@ export function cashOrCredit() {
     const cashBuyValue = document.querySelector("#cash-purchase");
     const installments = document.querySelector("#installments");
     const investmentCB = document.querySelector("#investment");
-    const userSelic = document.querySelector("#selic");
-    const userSelicTimeCB = document.querySelector("#selic-time");
     const userIpca = document.querySelector("#ipca");
     const userIpcaTimeCB = document.querySelector("#ipca-time");
     const performance = document.querySelector("#performance");
@@ -118,8 +133,6 @@ export function cashOrCredit() {
         cashBuyValue.value = "";
         installments.value = "";
         investmentCB.selectedIndex = 0;
-        userSelic.value = "";
-        userSelicTimeCB.selectedIndex = 1;
         userIpca.value = "";
         userIpcaTimeCB.selectedIndex = 1;
         performance.value = "";
@@ -133,8 +146,166 @@ export function cashOrCredit() {
     function calc() {
         let termBuyDecimal = formatCurrencyToFloat(termBuyValue.value);
         let cashBuyDecimal = formatCurrencyToFloat(cashBuyValue.value);
+        let installmentsDecimal = formatCurrencyToFloat(installments.value);
+        let installmentValue = parseFloat(termBuyDecimal / installmentsDecimal);
+        realCashRemunerationOnCreditPaid(
+            installmentsDecimal,
+            installmentValue,
+            cashBuyDecimal
+        );
+        realCashRemunerationOnCashPaid(
+            installmentsDecimal,
+            termBuyDecimal,
+            cashBuyDecimal
+        );
+        // printResults(ammout, totalContribution, insterestPaid);
+    }
 
-        printResults(ammout, totalContribution, insterestPaid);
+    function realCashRemunerationOnCashPaid(
+        installments,
+        termBuy,
+        cashBuyDecimal
+    ) {
+        let investmentReturn = parseFloat(
+            investmentAndFeeReturn(installments).return
+        );
+        let ransomFee = parseFloat(
+            investmentAndFeeReturn(installments).ransomFee
+        );
+        let diferencePaid = termBuy - cashBuyDecimal;
+
+        let cashAmmout = diferencePaid;
+        for (let i = 0; i < installments; i++) {
+            let lastAmmout = cashAmmout;
+            cashAmmout = parseFloat(lastAmmout * investmentReturn + cashAmmout);
+        }
+
+        let totalReturn = cashAmmout - diferencePaid;
+        console.log("totalReturn", totalReturn);
+
+        let returnWithFee = totalReturn * ransomFee;
+        const cashReturnProportion = 1 + returnWithFee / cashBuyDecimal;
+        const inflationProportion = (1 + inflationMonth()) ** installments;
+
+        let realReturn =
+            (cashReturnProportion / inflationProportion - 1) * diferencePaid;
+        console.log("realReturn", realReturn);
+    }
+
+    function realCashRemunerationOnCreditPaid(
+        installments,
+        installmentValue,
+        cashBuyDecimal
+    ) {
+        let investmentReturn = parseFloat(
+            investmentAndFeeReturn(installments).return
+        );
+        let ransomFee = parseFloat(
+            investmentAndFeeReturn(installments).ransomFee
+        );
+
+        let totalReturn = 0;
+        let cashAmmout = cashBuyDecimal;
+        for (let i = 0; i < installments; i++) {
+            let lastAmmout = cashAmmout;
+            cashAmmout = parseFloat(
+                lastAmmout * investmentReturn + (cashAmmout - installmentValue)
+            );
+            if (cashAmmout - lastAmmout + installmentValue > 0) {
+                totalReturn += cashAmmout - lastAmmout + installmentValue;
+            }
+        }
+
+        let returnWithFee = totalReturn * ransomFee;
+        const cashReturnProportion = 1 + returnWithFee / cashBuyDecimal;
+        const inflationProportion = (1 + inflationMonth()) ** installments;
+
+        let realReturn =
+            (cashReturnProportion / inflationProportion - 1) * cashBuyDecimal;
+        console.log("realReturn", realReturn);
+    }
+
+    function inflationMonth() {
+        let inflationMonth = 0;
+        if (investmentCB.value === "investment-others") {
+            if (userIpcaTimeCB.value === "ipca-time-year") {
+                inflationMonth = interestCompoundPerYearToMonth(
+                    formatCurrencyToFloat(userIpca.value) / 100
+                );
+            }
+            inflationMonth = formatCurrencyToFloat(userIpca.value) / 100;
+        } else {
+            const inflationActualMonth = interestCompoundPerYearToMonth(
+                ipcaActual / 100
+            );
+
+            inflationMonth = inflationActualMonth;
+        }
+
+        return parseFloat(inflationMonth);
+    }
+
+    function investmentAndFeeReturn(installments) {
+        const selicMetaActualMonth = interestCompoundPerYearToMonth(
+            selicActual / 100
+        );
+        const selicOverActualMonth = interestCompoundPerYearToMonth(
+            (selicActual - 0.1) / 100
+        );
+
+        if (investmentCB.value === "investment-none") {
+            return { return: 0, ransomFee: 1 };
+        }
+        if (investmentCB.value === "investment-savings") {
+            if (selicMetaActualMonth <= 0.085) {
+                return { return: 0.005, ransomFee: 1 };
+            }
+            return { return: selicOverActualMonth * 0.7, ransomFee: 1 };
+        }
+        if (investmentCB.value === "investment-selic") {
+            return {
+                return: selicOverActualMonth,
+                ransomFee: getIrpfInterestBrazil(installments),
+            };
+        }
+        if (investmentCB.value === "investment-80-cdi") {
+            return {
+                return: selicOverActualMonth * 0.8,
+                ransomFee: getIrpfInterestBrazil(installments),
+            };
+        }
+        if (investmentCB.value === "investment-90-cdi") {
+            return {
+                return: selicOverActualMonth * 0.9,
+                ransomFee: getIrpfInterestBrazil(installments),
+            };
+        }
+        if (investmentCB.value === "investment-100-cdi") {
+            return {
+                return: selicOverActualMonth,
+                ransomFee: getIrpfInterestBrazil(installments),
+            };
+        }
+        if (investmentCB.value === "investment-110-cdi") {
+            return {
+                return: selicOverActualMonth * 1.1,
+                ransomFee: getIrpfInterestBrazil(installments),
+            };
+        }
+        if (investmentCB.value === "investment-others") {
+            let performanceMonth =
+                formatCurrencyToFloat(performance.value) / 100;
+            if (performanceTimeCB.selectedIndex === 1) {
+                performanceMonth = interestCompoundPerYearToMonth(
+                    formatCurrencyToFloat(performance.value) / 100
+                );
+            }
+
+            let incomeTaxValue =
+                formatCurrencyToFloat(userIncomeTax.value) / 100;
+
+            return { return: performanceMonth, ransomFee: incomeTaxValue };
+        }
     }
 
     function printResults(total, contributionTotal, insterestPaid) {

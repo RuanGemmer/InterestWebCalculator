@@ -30,7 +30,7 @@ function interestCompoundPerDayToMonth(interest) {
     return Number((1 + interest) ** 30 - 1);
 }
 
-function interestCompoundPerYearToMonth(interest) {
+export function interestCompoundPerYearToMonth(interest) {
     return Number((1 + interest) ** (1 / 12) - 1);
 }
 

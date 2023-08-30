@@ -1,3 +1,4 @@
+import { getIndicators } from "./cash_or_credit";
 import {
     ipcaAA,
     ipcaFutureAA,
@@ -7,29 +8,41 @@ import {
 import { formatNumberBrazil } from "./utils";
 
 export async function feedIndicators() {
+    let actualSelic = 0;
+    let actualIpca = 0;
+    let futureSelic = 0;
+    let futureIpca = 0;
+
     try {
-        await selicActual();
+        actualSelic = await selicActual();
     } catch (error) {
         console.error("Erro em selicActual:", error);
     }
 
     try {
-        await selicFuture();
+        futureSelic = await selicFuture();
     } catch (error) {
         console.error("Erro em selicFuture:", error);
     }
 
     try {
-        await ipcaActual();
+        actualIpca = await ipcaActual();
     } catch (error) {
         console.error("Erro em ipcaActual:", error);
     }
 
     try {
-        await ipcaFuture();
+        futureIpca = await ipcaFuture();
     } catch (error) {
         console.error("Erro em ipcaFuture:", error);
     }
+
+    getIndicators(
+        parseFloat(actualSelic.value),
+        parseFloat(actualIpca.value),
+        futureSelic.value,
+        futureIpca.value
+    );
 }
 
 async function selicActual() {
@@ -50,6 +63,8 @@ async function selicActual() {
         ","
     )}% <br>`;
     indicatorDate1.innerHTML = selicActualData.dateObtained;
+
+    return selicActualData;
 }
 
 async function ipcaActual() {
@@ -71,6 +86,8 @@ async function ipcaActual() {
         ","
     )}% <br>`;
     indicatorDate2.innerHTML = ipcaActualData.dateObtained;
+
+    return ipcaActualData;
 }
 
 async function selicFuture() {
@@ -91,6 +108,8 @@ async function selicFuture() {
         selicFutureData.value
     )}% <br>`;
     indicatorDate3.innerHTML = selicFutureData.dateObtained;
+
+    return selicFutureData;
 }
 
 async function ipcaFuture() {
@@ -111,4 +130,6 @@ async function ipcaFuture() {
         ipcaFutureData.value
     )}% <br>`;
     indicatorDate4.innerHTML = ipcaFutureData.dateObtained;
+
+    return ipcaFutureData;
 }

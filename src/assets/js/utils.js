@@ -93,3 +93,18 @@ export function getNextYear() {
     const actualYear = Number(actualDate.getFullYear());
     return Number(actualYear + 1);
 }
+
+export function getIrpfInterestBrazil(months) {
+    if (months <= 180 / 30) {
+        return 1 - 0.225;
+    }
+    if (months <= 360 / 30) {
+        return 1 - 0.2;
+    }
+    if (months <= 720 / 30) {
+        return 1 - 0.175;
+    }
+    if (months > 720 / 30) {
+        return 1 - 0.15;
+    }
+}
