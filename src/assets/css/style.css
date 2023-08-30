@@ -634,7 +634,8 @@ input:valid ~ label {
 .result-value-0,
 .result-value-1,
 .result-value-2,
-.result-value-3 {
+.result-value-3,
+.result-value-4 {
     margin: 0 auto 2rem auto;
     display: flex;
     align-items: center;
@@ -645,8 +646,14 @@ input:valid ~ label {
 .result-value-0 span,
 .result-value-1 span,
 .result-value-2 span,
-.result-value-3 span {
+.result-value-3 span,
+.result-value-4 span {
     margin-left: var(--gap-smaller);
+}
+
+.result-container.grid2{
+    grid-column: span 2;
+    width: 64rem;
 }
 
 .result-value-2 {
@@ -741,6 +748,10 @@ input:valid ~ label {
         width: 25rem;
     }
 
+    .result-container.grid2{
+        width: 58rem;
+    }
+
     .result-container h2 {
         font-size: 2.5rem;
     }
@@ -765,6 +776,12 @@ input:valid ~ label {
     }
 
     .result-container {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .result-container.grid2{
+        grid-column: span 1;
         width: 90%;
         margin: 0 auto;
     }
@@ -907,9 +924,3 @@ input:valid ~ label {
         font-size: 2.2rem;
     }
 }
-/* 
-@media (max-height: 750px) and (max-width: 350px) {
-    .grow {
-        height: fit-content;
-    }
-} */
