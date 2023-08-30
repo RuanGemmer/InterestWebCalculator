@@ -82,7 +82,7 @@
         </div>
 
         <!-- Footer -->
-        <footer class="footer-container-index">
+        <footer class="footer-container">
             <section class="footer-content content">
                 <a href="https://linktr.ee/ruangemmer" target="_blank" rel="noopener noreferrer">
                     <h6 class="footer-subtitle">
@@ -95,6 +95,57 @@
             </section>
         </footer>
     </div>
+
+    <!-- Menu -->
+    <input id="closemenu" class="closemenu" type="checkbox" aria-label="close menu" role="button" aria-pressed="true">
+    <label class="closemenulabel" for="closemenu"></label>
+    <div class="menu">
+        <div class="menucontent">
+            <h1 onclick="getElementById('closemenu').checked=false;">
+                <a href="./index.html">
+                    <span class="header-title">
+                        <img class="header-icon" src="./assets/img/Calculator-white.svg" alt="image calculator">
+                        Calculadora
+                    </span>
+                </a>
+            </h1>
+            <nav>
+                <ul onclick="getElementById('closemenu').checked=false;">
+                    <li>
+                        <a href="./simple_interest.html">
+                            <img src="./assets/img/linear.svg" alt="image linear graph">
+                            Juros Simples
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./compound_interest.html">
+                            <img src="./assets/img/exponential.svg" alt="image exponential graph">
+                            Juros Compostos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./total_buy.html">
+                            <img src="./assets/img/percent.svg" alt="image percent">
+                            Total compra parcelada
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./cash_or_credit.html">
+                            <img src="./assets/img/money.svg" alt="image money">
+                            À vista ou parcelado
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://linktr.ee/ruangemmer" target="_blank">
+                            <img src="./assets/img/person.svg" alt="image github">
+                            Contato
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
 </body>
 
 </html>
