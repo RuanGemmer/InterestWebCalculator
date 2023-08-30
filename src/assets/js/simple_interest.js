@@ -87,9 +87,14 @@ export function simpleInterest() {
         resultsContainer.scrollIntoView({ behavior: "smooth" });
     }
 
+    function name() {
+        return "simpleinterest";
+    }
+
     return {
         testEmpty,
         calc,
         clearFields,
+        name,
     };
 }

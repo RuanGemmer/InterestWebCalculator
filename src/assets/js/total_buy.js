@@ -1,3 +1,4 @@
+import { saveHistoric } from "./historic";
 import { convertCBInterestToYear, convertoCBTimeToYear } from "./transforms";
 import {
     formatCurrencyToFloat,
@@ -84,6 +85,13 @@ export function totalBuy() {
         let percent = (ammout / initialValueFloat - 1) * 100;
 
         printResults(ammout, installment, insterestPaid, percent);
+        saveHistoricCalc(
+            interestPerYear,
+            ammout,
+            installment,
+            insterestPaid,
+            percent
+        );
     }
 
     function printResults(total, installment, insterestPaid, percent) {
@@ -97,9 +105,32 @@ export function totalBuy() {
         resultsContainer.scrollIntoView({ behavior: "smooth" });
     }
 
+    function saveHistoricCalc(
+        interestPerYear,
+        ammout,
+        installment,
+        insterestPaid,
+        percent
+    ) {
+        saveHistoric(
+            name(),
+            initialValue.value,
+            `${formatNumberBrazil(interestPerYear * 100)}%`,
+            `${time.value} ${investedTime.value}`,
+            formatToCurrency(ammout),
+            formatToCurrency(installment),
+            formatToCurrency(insterestPaid),
+            formatNumberBrazil(percent)
+        );
+    }
+
+    function name() {
+        return "totalbuy";
+    }
     return {
         testEmpty,
         calc,
         clearFields,
+        name,
     };
 }

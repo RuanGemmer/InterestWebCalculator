@@ -127,9 +127,14 @@ export function compoundInterest() {
         resultsContainer.scrollIntoView({ behavior: "smooth" });
     }
 
+    function name() {
+        return "compoundinterest";
+    }
+
     return {
         testEmpty,
         calc,
         clearFields,
+        name,
     };
 }

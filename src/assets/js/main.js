@@ -4,11 +4,15 @@ import "../img/Calculator-white.svg";
 import "../img/Calculator.svg";
 import "../img/credit-card.svg";
 import "../img/exponential.svg";
+import "../img/github.svg";
+import "../img/history.svg";
 import "../img/linear.svg";
 import "../img/money.svg";
 import "../img/percent.svg";
+import "../img/person.svg";
 import { cashOrCredit } from "./cash_or_credit";
 import { compoundInterest } from "./compound_interest";
+import { closeHistoric, openHistoric } from "./historic";
 import { feedIndicators } from "./indicators";
 import { simpleInterest } from "./simple_interest";
 import { totalBuy } from "./total_buy";
@@ -61,6 +65,14 @@ function globalEvent(functionPage) {
 
         if (el.classList.contains("button-clean")) {
             functionPage.clearFields();
+        }
+
+        if (el.classList.contains("close-icon")) {
+            closeHistoric();
+        }
+
+        if (el.classList.contains("open-historic")) {
+            openHistoric();
         }
 
         if (

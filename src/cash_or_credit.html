@@ -161,10 +161,11 @@
 
                                         <div class="grid-calculator-content">
                                             <div class="input-group-min">
-                                                <input disabled="true" required type="text" name="ipca" id="ipca" autocomplete="off"
-                                                    class="input-min ipca percent-validation">
+                                                <input disabled="true" required type="text" name="ipca" id="ipca"
+                                                    autocomplete="off" class="input-min ipca percent-validation">
                                                 <label class="user-label" for="ipca">Inflação - IPCA (%)</label>
-                                                <select disabled="true" class="calculator-select" name="ipca-time" id="ipca-time">
+                                                <select disabled="true" class="calculator-select" name="ipca-time"
+                                                    id="ipca-time">
                                                     <option value="ipca-time-month">Mensal</option>
                                                     <option value="ipca-time-year" selected>Anual</option>
                                                 </select>
@@ -173,12 +174,13 @@
 
                                         <div class="grid-calculator-content">
                                             <div class="input-group-min">
-                                                <input disabled="true" required type="text" name="performance" id="performance"
-                                                    autocomplete="off" class="input-min performance percent-validation">
+                                                <input disabled="true" required type="text" name="performance"
+                                                    id="performance" autocomplete="off"
+                                                    class="input-min performance percent-validation">
                                                 <label class="user-label" for="performance">Rend. investimentos
                                                     (%)</label>
-                                                <select disabled="true" class="calculator-select" name="performance-time"
-                                                    id="performance-time">
+                                                <select disabled="true" class="calculator-select"
+                                                    name="performance-time" id="performance-time">
                                                     <option value="performance-time-month">Mensal</option>
                                                     <option value="performance-time-year" selected>Anual</option>
                                                 </select>
@@ -187,8 +189,9 @@
 
                                         <div class="grid-calculator-content">
                                             <div class="input-group">
-                                                <input disabled="true" required type="text" name="income-tax" id="income-tax"
-                                                    autocomplete="off" class="input income-tax percent-validation">
+                                                <input disabled="true" required type="text" name="income-tax"
+                                                    id="income-tax" autocomplete="off"
+                                                    class="input income-tax percent-validation">
                                                 <label class="user-label" for="income-tax">Imposto no resgate
                                                     investimento (%)</label>
                                             </div>
@@ -225,7 +228,7 @@
                                 <div class="result-container">
                                     <h5 class="result-title">Valor de juros real na compra à prazo:</h5>
                                     <h2 class="result-value-3 cash">R$ <span id="value-3"></span></h2>
-                                </div>                                
+                                </div>
                                 <div class="result-container">
                                     <h5 class="result-title">Valor total do bem parcelado:</h5>
                                     <h2 class="result-value-1 cash">R$ <span id="value-1"></span></h2>
@@ -256,6 +259,89 @@
             </a>
         </section>
     </footer>
+
+    <!-- Menu -->
+    <input id="closemenu" class="closemenu" type="checkbox" aria-label="close menu" role="button" aria-pressed="true">
+    <label class="closemenulabel" for="closemenu"></label>
+    <div class="menu">
+        <div class="menucontent">
+            <h1 onclick="getElementById('closemenu').checked=false;">
+                <a href="./index.html">
+                    <span class="header-title">
+                        <img class="header-icon" src="./assets/img/Calculator-white.svg" alt="image calculator">
+                        Calculadora
+                    </span>
+                </a>
+            </h1>
+            <nav>
+                <ul onclick="getElementById('closemenu').checked=false;">
+                    <li>
+                        <a href="#" class="open-historic">
+                            <img src="./assets/img/history.svg" alt="image clock">
+                            Histórico
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./simple_interest.html">
+                            <img src="./assets/img/linear.svg" alt="image linear graph">
+                            Juros Simples
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./compound_interest.html">
+                            <img src="./assets/img/exponential.svg" alt="image exponential graph">
+                            Juros Compostos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./total_buy.html">
+                            <img src="./assets/img/percent.svg" alt="image percent">
+                            Total compra parcelada
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./cash_or_credit.html">
+                            <img src="./assets/img/money.svg" alt="image money">
+                            À vista ou parcelado
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://linktr.ee/ruangemmer" target="_blank">
+                            <img src="./assets/img/person.svg" alt="image github">
+                            Contato
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Historic -->
+    <div class="historic-container hidden">
+        <div class="historic-content-table">
+            <div class="close-content">
+                <i class="fa-solid fa-circle-xmark close-icon"></i>
+                <p>Histórico de cálculos</p>
+            </div>
+            <div class="historic-table-container">
+                <table class="historic-table">
+                    <tr>
+                        <th>ID</th>
+                        <th>Valor à vista</th>
+                        <th>Taxa de juros (a.a)</th>
+                        <th>Período</th>
+                        <th>Valor da compra</th>
+                        <th>Valor da parcela</th>
+                        <th>Valor de juros</th>
+                        <th>Quanto a mais foi pago?</th>
+                    </tr>
+                </table>
+            </div>
+            <div class="clear-historic-container">
+                <button class="button-clean">Limpar</button>
+            </div>
+        </div>
+    </div>
 
 </body>
 

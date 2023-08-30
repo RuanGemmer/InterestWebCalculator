@@ -411,6 +411,10 @@ export function cashOrCredit() {
         indicator4.classList.add("fa-spin-pulse");
     }
 
+    function name() {
+        return "cashorcredit";
+    }
+
     return {
         testEmpty,
         calc,
@@ -418,5 +422,6 @@ export function cashOrCredit() {
         closeExpandAdvancedCalc,
         investmentsSelected,
         addLoaders,
+        name,
     };
 }

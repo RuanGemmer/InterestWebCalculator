@@ -14,6 +14,9 @@
     <meta property="og:image" content="https://iili.io/HyM93Ij.jpg">
     <meta property="og:url" content="https://web-calculator-murex.vercel.app/">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css"
+        integrity="sha512-siarrzI1u3pCqFG2LEzi87McrBmq6Tp7juVsdmGY1Dr8Saw+ZBAzDzrGwX3vgxX1NkioYNCFOVC0GpDPss10zQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css"
         integrity="sha512-P9pgMgcSNlLb4Z2WAB2sH5KBKGnBfyJnq+bhcfLCFusrRc4XdXrhfDluBl/usq75NF5gTDIMcwI1GaG5gju+Mw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -155,6 +158,89 @@
             </a>
         </section>
     </footer>
+
+    <!-- Menu -->
+    <input id="closemenu" class="closemenu" type="checkbox" aria-label="close menu" role="button" aria-pressed="true">
+    <label class="closemenulabel" for="closemenu"></label>
+    <div class="menu">
+        <div class="menucontent">
+            <h1 onclick="getElementById('closemenu').checked=false;">
+                <a href="./index.html">
+                    <span class="header-title">
+                        <img class="header-icon" src="./assets/img/Calculator-white.svg" alt="image calculator">
+                        Calculadora
+                    </span>
+                </a>
+            </h1>
+            <nav>
+                <ul onclick="getElementById('closemenu').checked=false;">
+                    <li>
+                        <a href="#" class="open-historic">
+                            <img src="./assets/img/history.svg" alt="image clock">
+                            Histórico
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./simple_interest.html">
+                            <img src="./assets/img/linear.svg" alt="image linear graph">
+                            Juros Simples
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./compound_interest.html">
+                            <img src="./assets/img/exponential.svg" alt="image exponential graph">
+                            Juros Compostos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./total_buy.html">
+                            <img src="./assets/img/percent.svg" alt="image percent">
+                            Total compra parcelada
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./cash_or_credit.html">
+                            <img src="./assets/img/money.svg" alt="image money">
+                            À vista ou parcelado
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://linktr.ee/ruangemmer" target="_blank">
+                            <img src="./assets/img/person.svg" alt="image github">
+                            Contato
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Historic -->
+    <div class="historic-container hidden">
+        <div class="historic-content-table">
+            <div class="close-content">
+                <i class="fa-solid fa-circle-xmark close-icon"></i>
+                <p>Histórico de cálculos</p>
+            </div>
+            <div class="historic-table-container">
+                <table class="historic-table">
+                    <tr>
+                        <th>ID</th>
+                        <th>Valor à vista</th>
+                        <th>Taxa de juros (a.a)</th>
+                        <th>Período</th>
+                        <th>Valor da compra</th>
+                        <th>Valor da parcela</th>
+                        <th>Valor de juros</th>
+                        <th>Quanto a mais foi pago?</th>
+                    </tr>
+                </table>
+            </div>
+            <div class="clear-historic-container">
+                <button class="button-clean">Limpar</button>
+            </div>
+        </div>
+    </div>
 
 </body>
 
