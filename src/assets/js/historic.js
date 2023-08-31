@@ -125,39 +125,71 @@ function clearTableOnClose() {
     }
 }
 
-export function clearHistoric(pageName) {
+export function askClearHistoric(pageName) {
     let hasHistoric = false;
+
     if (localStorage.getItem("historic") != null) {
-        let dataHistoric = [];
         const dataJson = localStorage.getItem("historic");
         let dataList = JSON.parse(dataJson);
 
         for (let i of dataList) {
             if (i[1] === pageName) {
                 hasHistoric = true;
-                continue;
             }
-            let obj = [];
-            for (let j of i) {
-                obj.push(j);
-            }
-            dataHistoric.push(obj);
         }
 
-        if (dataHistoric.length != 0) {
-            const data = JSON.stringify(dataHistoric);
-            localStorage.setItem("historic", data);
-        } else {
-            localStorage.removeItem("historic");
+        if (hasHistoric === true) {
+            Swal.fire({
+                title: "Tem certeza que deseja apagar o histórico desta página?",
+                text: "Não tem como reverter essa ação!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#2c82bf",
+                cancelButtonColor: "#333333",
+                confirmButtonText: "Sim, apagar!",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    clearHistoric(pageName, dataList);
+                    Swal.fire(
+                        "Apagado!",
+                        "Seu histório da página foi apagado com sucesso.",
+                        "success"
+                    );
+                }
+            });
+            return;
         }
+    }
+    Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Você não possui nada para excluir!",
+    });
+}
 
-        clearTableOnClose();
-        printHistoric(getHistoric(pageName));
+function clearHistoric(pageName, dataList) {
+    let dataHistoric = [];
+
+    for (let i of dataList) {
+        if (i[1] === pageName) {
+            continue;
+        }
+        let obj = [];
+        for (let j of i) {
+            obj.push(j);
+        }
+        dataHistoric.push(obj);
     }
 
-    if (hasHistoric === false) {
-        return alert("Sem histórico para limpar!");
+    if (dataHistoric.length != 0) {
+        const data = JSON.stringify(dataHistoric);
+        localStorage.setItem("historic", data);
+    } else {
+        localStorage.removeItem("historic");
     }
+
+    clearTableOnClose();
+    printHistoric(getHistoric(pageName));
 }
 
 export function closeHistoric() {

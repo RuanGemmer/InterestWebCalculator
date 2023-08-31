@@ -27,7 +27,7 @@ export function totalBuy() {
             !hasNotEmptyFields(
                 initialValue,
                 "VALOR À VISTA DA COMPRA",
-                initialValue.value === ""
+                initialValue.value === "" || initialValue.value <= 0
             )
         ) {
             hasEmpty = false;
@@ -37,7 +37,7 @@ export function totalBuy() {
             !hasNotEmptyFields(
                 time,
                 "PERÍODO",
-                time.value === "" || time.value < 0
+                time.value === "" || formatCurrencyToFloat(time.value) <= 0
             )
         ) {
             hasEmpty = false;

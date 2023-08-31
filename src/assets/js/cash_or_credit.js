@@ -61,7 +61,8 @@ export function cashOrCredit() {
             !hasNotEmptyFields(
                 termBuyValue,
                 "VALOR TOTAL DA COMPRA PARCELADA",
-                termBuyValue.value === ""
+                termBuyValue.value === "" ||
+                    formatCurrencyToFloat(termBuyValue.value) <= 0
             )
         ) {
             hasEmpty = false;
@@ -71,7 +72,8 @@ export function cashOrCredit() {
             !hasNotEmptyFields(
                 cashBuyValue,
                 "VALOR DA COMPRA À VISTA",
-                cashBuyValue.value === ""
+                cashBuyValue.value === "" ||
+                    formatCurrencyToFloat(cashBuyValue.value) <= 0
             )
         ) {
             hasEmpty = false;
@@ -188,12 +190,30 @@ export function cashOrCredit() {
             cashBuyDecimal
         );
 
+        console.log("installmentsDecimal", installmentsDecimal);
+        console.log("termBuyDecimal", termBuyDecimal);
+        console.log("cashBuyDecimal", cashBuyDecimal);
+
+        console.log(
+            "realCashRemunerationOnCashPaid",
+            realCashRemunerationOnCashPaid(
+                installmentsDecimal,
+                termBuyDecimal,
+                cashBuyDecimal
+            )
+        );
+
         const totalCashBuy = cashBuyDecimal - remunerationOnCashPaid;
         const totalTermBuy = termBuyDecimal - remunerationOnCreditPaid;
+        console.log("totalCashBuy", totalCashBuy);
+        console.log("totalTermBuy", totalTermBuy);
         let choise = "PARCELADO";
 
         if (totalCashBuy < totalTermBuy) {
             choise = "À VISTA";
+        }
+        if (totalCashBuy === totalTermBuy) {
+            choise = "INDIFERENTE";
         }
 
         printResults(
@@ -250,6 +270,9 @@ export function cashOrCredit() {
             investmentAndFeeReturn(installments).ransomFee
         );
         const diferencePaid = parseFloat(termBuy - cashBuyDecimal);
+        if (diferencePaid === 0) {
+            return parseFloat(0);
+        }
 
         let cashAmmout = diferencePaid;
         for (let i = 0; i < installments; i++) {
@@ -275,6 +298,7 @@ export function cashOrCredit() {
         let investmentReturn = parseFloat(
             investmentAndFeeReturn(installments).return
         );
+
         let ransomFee = parseFloat(
             investmentAndFeeReturn(installments).ransomFee
         );

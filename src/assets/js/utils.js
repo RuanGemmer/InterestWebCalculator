@@ -21,7 +21,7 @@ export function formatToCurrency(value) {
 
 export function formatCurrencyToFloat(number) {
     number = number.replace(/\./g, "");
-    return Number(number.replace(",", "."));
+    return parseFloat(number.replace(",", "."));
 }
 
 export function formatNumberBrazil(value) {
@@ -103,8 +103,8 @@ function fullZero(number) {
 
 export function getNextYear() {
     const actualDate = new Date();
-    const actualYear = Number(actualDate.getFullYear());
-    return Number(actualYear + 1);
+    const actualYear = parseFloat(actualDate.getFullYear());
+    return parseFloat(actualYear + 1);
 }
 
 export function getIrpfInterestBrazil(months) {

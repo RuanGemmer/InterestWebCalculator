@@ -138,7 +138,6 @@ a:hover {
 /* Card */
 .menu-calculator-container {
     flex: 1;
-    min-height: 100vh;
 }
 
 .menu-calculator-container-menu {
@@ -252,7 +251,7 @@ a:hover {
 
 /* Content */
 .calculator-content {
-    min-height: 85vh;
+    min-height: 84vh;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -787,6 +786,9 @@ input:valid ~ label {
 .close-content p {
     margin: auto;
     font-weight: bold;
+    width: 100%;
+    text-align: center;
+    padding-left: 5.5rem;
 }
 
 .close-icon {
@@ -805,12 +807,14 @@ input:valid ~ label {
 .historic-table-container {
     margin: var(--gap-smaller);
     overflow: auto;
+    width: 100%;
 }
 
 .clear-historic-container {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
 }
 
 .historic-container.hidden {
@@ -1185,3 +1189,23 @@ input:valid ~ label {
         overflow-y: auto;
     }
 }
+
+@media (min-height: 850px) {
+    .menu-calculator-container {
+        min-height: 90vh;
+    }
+}
+
+@media (min-height: 1300px) {
+    .menu-calculator-container {
+        min-height: 95vh;
+    }
+}
+
+@media (min-height: 2500px) {
+    .menu-calculator-container {
+        min-height: 98vh;
+    }
+}
+
+
