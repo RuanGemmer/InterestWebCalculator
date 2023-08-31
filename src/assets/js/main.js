@@ -12,7 +12,7 @@ import "../img/percent.svg";
 import "../img/person.svg";
 import { cashOrCredit } from "./cash_or_credit";
 import { compoundInterest } from "./compound_interest";
-import { closeHistoric, openHistoric } from "./historic";
+import { clearHistoric, closeHistoric, openHistoric } from "./historic";
 import { feedIndicators } from "./indicators";
 import { simpleInterest } from "./simple_interest";
 import { totalBuy } from "./total_buy";
@@ -65,6 +65,10 @@ function globalEvent(functionPage) {
 
         if (el.classList.contains("button-clean")) {
             functionPage.clearFields();
+        }
+
+        if (el.classList.contains("button-clean-historic")) {
+            clearHistoric(functionPage.name());
         }
 
         if (el.classList.contains("close-icon")) {

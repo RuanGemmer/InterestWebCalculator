@@ -4,6 +4,7 @@ import {
     formatCurrencyToFloat,
     formatNumberBrazil,
     formatToCurrency,
+    getActualDateAndTimeBrazil,
 } from "./utils";
 import { hasNotEmptyFields } from "./validation";
 
@@ -114,13 +115,14 @@ export function totalBuy() {
     ) {
         saveHistoric(
             name(),
-            initialValue.value,
+            getActualDateAndTimeBrazil(),
+            `R$ ${initialValue.value}`,
             `${formatNumberBrazil(interestPerYear * 100)}%`,
             `${time.value} ${investedTime.value}`,
-            formatToCurrency(ammout),
-            formatToCurrency(installment),
-            formatToCurrency(insterestPaid),
-            formatNumberBrazil(percent)
+            `R$ ${formatToCurrency(ammout)}`,
+            `R$ ${formatToCurrency(installment)} ao ${investedTime.value}`,
+            `R$ ${formatToCurrency(insterestPaid)}`,
+            `${formatNumberBrazil(percent)}%`
         );
     }
 

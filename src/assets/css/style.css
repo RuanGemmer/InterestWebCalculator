@@ -529,7 +529,8 @@ input:valid ~ label {
 }
 
 .button-primary,
-.button-clean {
+.button-clean,
+.button-clean-historic {
     border: none;
     font-size: 2rem;
     padding: 1rem 4rem;
@@ -550,12 +551,14 @@ input:valid ~ label {
     cursor: pointer;
 }
 
-.button-clean {
+.button-clean,
+.button-clean-historic {
     background-color: var(--color-gray-7);
     color: var(--color-white);
 }
 
-.button-clean:hover {
+.button-clean:hover,
+.button-clean-historic:hover {
     background-color: var(--color-gray-9);
     cursor: pointer;
 }
@@ -763,10 +766,15 @@ input:valid ~ label {
 }
 
 .historic-content-table {
-    width: 50rem;
-    height: 50rem;
-    background-color: var(--color-white);
+    max-height: 100vh;
+    max-width: 120rem;
+    background-color: rgba(255,255,255,0.7);
     border-radius: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: center;
+    overflow-x: auto;
 }
 
 .close-content {
@@ -777,18 +785,16 @@ input:valid ~ label {
 }
 
 .close-content p {
-    margin: auto 3.5rem auto 0;
+    margin: auto;
+    font-weight: bold;
 }
 
 .close-icon {
     color: var(--color-primary);
-    background-color: white;
     border-radius: 2rem;
-    position: relative;
-    top: -2rem;
-    right: -34.5rem;
     font-size: 3.5rem;
     transition: all 300ms ease-in-out;
+    margin: var(--gap-smaller) var(--gap-smaller) var(--gap-smaller) 0;
 }
 
 .close-icon:hover {
@@ -797,10 +803,7 @@ input:valid ~ label {
 }
 
 .historic-table-container {
-    margin: 0 auto var(--gap-smaller) auto;
-    width: 48rem;
-    height: 40rem;
-    border: 1px solid var(--color-gray-3);
+    margin: var(--gap-smaller);
     overflow: auto;
 }
 
@@ -821,6 +824,47 @@ input:valid ~ label {
     font-size: 2rem;
     color: var(--color-gray-5);
 }
+
+.historic-table{
+    border-collapse: collapse;
+    margin: var(--gap-small) 0;
+    font-size: 1.2rem;
+    min-width: 100%;
+    border-radius: 1rem 1rem 0 0;
+    overflow: hidden;
+    background-color: var(--color-white);
+}
+
+.historic-table th{
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    text-align: left;
+    font-weight: bold;
+}
+
+.historic-table :where(th, td){
+    padding: var(--gap-smaller) var(--gap-small);
+    white-space: nowrap;
+
+}
+
+.historic-table tr{
+    border-bottom: 1px solid var(--color-gray-1);
+}
+
+.historic-table tr:nth-of-type(even){
+    background-color: var(--color-gray-05);
+}
+
+.historic-table tr:last-of-type{
+    border-bottom: 2px solid var(--color-primary);
+}
+
+.historic-table tr:hover{
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
 
 /* menu */
 .menu {
@@ -1107,7 +1151,8 @@ input:valid ~ label {
     }
 
     .button-primary,
-    .button-clean {
+    .button-clean,
+    .button-clean-historic {
         width: 100%;
         margin: var(--gap-medium) var(--gap-small);
         margin-top: 0;

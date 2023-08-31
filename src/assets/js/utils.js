@@ -88,6 +88,26 @@ export function getActualDateBrazil() {
     return `${day}/${month}/${year}`;
 }
 
+export function getActualDateAndTimeBrazil() {
+    const dateObject = new Date();
+
+    let day = dateObject.getDate();
+    let month = dateObject.getMonth() + 1;
+    const year = dateObject.getFullYear();
+    const hour = dateObject.getHours();
+    const minutes = dateObject.getMinutes();
+    const seconds = dateObject.getSeconds();
+
+    if (month < 10) {
+        month = `0${month}`;
+    }
+
+    if (day < 10) {
+        day = `0${day}`;
+    }
+    return `${day}/${month}/${year} ${hour}:${minutes}:${seconds}`;
+}
+
 export function getNextYear() {
     const actualDate = new Date();
     const actualYear = Number(actualDate.getFullYear());

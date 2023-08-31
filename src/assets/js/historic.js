@@ -1,4 +1,5 @@
 let id = 0;
+const numberMaxOfRegisters = 10;
 nextId();
 
 export function saveHistoric(...args) {
@@ -10,7 +11,7 @@ export function saveHistoric(...args) {
         const dataJson = localStorage.getItem("historic");
         let dataList = JSON.parse(dataJson);
 
-        mantainFiveCalcs(lastCalc[1], dataList);
+        mantainMaxRegistersCalcs(lastCalc[1], dataList);
 
         for (let i of dataList) {
             let obj = [];
@@ -26,7 +27,7 @@ export function saveHistoric(...args) {
     localStorage.setItem("historic", data);
 }
 
-function mantainFiveCalcs(pageName, dataList) {
+function mantainMaxRegistersCalcs(pageName, dataList) {
     let countHistorical = 0;
     let minimunIdCount;
     for (let i of dataList) {
@@ -38,10 +39,9 @@ function mantainFiveCalcs(pageName, dataList) {
         }
     }
 
-    if (countHistorical >= 5) {
+    if (countHistorical >= numberMaxOfRegisters) {
         for (let i of dataList) {
             if (i[0] === minimunIdCount) {
-                console.log("aqui");
                 dataList.splice(i - 1, 1);
             }
         }
@@ -74,7 +74,6 @@ function getHistoric(pageName) {
             }
         }
     }
-    console.log("dataPrint getHistoric:", dataPrint);
     return dataPrint;
 }
 
@@ -97,11 +96,9 @@ function printHistoric(dataToPrint) {
     //Create row
     for (let i = dataToPrint.length - 1; i >= 0; i--) {
         let newRow = table.insertRow();
-        console.log("i print historic:", dataToPrint[i]);
 
         //Create and feed cells
         for (let j = 0; j < dataToPrint[i].length; j++) {
-            console.log("i[j] print historic:", dataToPrint[i][j]);
             if (j === 1) {
                 continue;
             }
@@ -125,6 +122,41 @@ function clearTableOnClose() {
         for (var i = rows.length - 1; i > 0; i--) {
             table.deleteRow(i);
         }
+    }
+}
+
+export function clearHistoric(pageName) {
+    let hasHistoric = false;
+    if (localStorage.getItem("historic") != null) {
+        let dataHistoric = [];
+        const dataJson = localStorage.getItem("historic");
+        let dataList = JSON.parse(dataJson);
+
+        for (let i of dataList) {
+            if (i[1] === pageName) {
+                hasHistoric = true;
+                continue;
+            }
+            let obj = [];
+            for (let j of i) {
+                obj.push(j);
+            }
+            dataHistoric.push(obj);
+        }
+
+        if (dataHistoric.length != 0) {
+            const data = JSON.stringify(dataHistoric);
+            localStorage.setItem("historic", data);
+        } else {
+            localStorage.removeItem("historic");
+        }
+
+        clearTableOnClose();
+        printHistoric(getHistoric(pageName));
+    }
+
+    if (hasHistoric === false) {
+        return alert("Sem histórico para limpar!");
     }
 }
 
