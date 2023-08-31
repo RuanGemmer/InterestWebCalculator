@@ -1,9 +1,15 @@
+import { saveHistoric } from "./historic";
 import {
     convertCBInterestToMonth,
     convertoCBTimeToMonth,
     interestCompoundPerMonthToDay,
 } from "./transforms";
-import { formatCurrencyToFloat, formatToCurrency } from "./utils";
+import {
+    formatCurrencyToFloat,
+    formatNumberBrazil,
+    formatToCurrency,
+    getActualDateAndTimeBrazil,
+} from "./utils";
 import { hasNotEmptyFields } from "./validation";
 
 export function compoundInterest() {
@@ -116,6 +122,13 @@ export function compoundInterest() {
         let insterestPaid = ammout - totalContribution;
 
         printResults(ammout, totalContribution, insterestPaid);
+        saveHistoricCalc(
+            contributionFloat,
+            interestPerMonth,
+            ammout,
+            totalContribution,
+            insterestPaid
+        );
     }
 
     function printResults(total, contributionTotal, insterestPaid) {
@@ -125,6 +138,29 @@ export function compoundInterest() {
 
         resultsContainer.classList.remove("yes");
         resultsContainer.scrollIntoView({ behavior: "smooth" });
+    }
+
+    function saveHistoricCalc(
+        contributionFloat,
+        interestPerMonth,
+        ammout,
+        totalContribution,
+        insterestPaid
+    ) {
+        const timeSelectedIndex = investedTimeCB.selectedIndex;
+        const timeText = investedTimeCB.options[timeSelectedIndex].text;
+
+        saveHistoric(
+            name(),
+            getActualDateAndTimeBrazil(),
+            `R$ ${initialValue.value}`,
+            `R$ ${formatToCurrency(contributionFloat)}`,
+            `${formatNumberBrazil(interestPerMonth * 100)}%`,
+            `${time.value} ${timeText}`,
+            `R$ ${formatToCurrency(ammout)}`,
+            `R$ ${formatToCurrency(totalContribution)}`,
+            `R$ ${formatToCurrency(insterestPaid)}`
+        );
     }
 
     function name() {

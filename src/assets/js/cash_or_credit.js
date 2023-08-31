@@ -1,11 +1,17 @@
-import { interestCompoundPerYearToMonth } from "./transforms";
+import { saveHistoric } from "./historic";
+import {
+    interestCompoundPerMonthToYear,
+    interestCompoundPerYearToMonth,
+} from "./transforms";
 import {
     formatCurrencyToFloat,
     formatNumberBrazil,
     formatToCurrency,
+    getActualDateAndTimeBrazil,
     getIrpfInterestBrazil,
 } from "./utils";
 import { hasNotEmptyFields } from "./validation";
+
 let selicActual;
 let ipcaActual;
 let selicFuture;
@@ -184,21 +190,34 @@ export function cashOrCredit() {
 
         const totalCashBuy = cashBuyDecimal - remunerationOnCashPaid;
         const totalTermBuy = termBuyDecimal - remunerationOnCreditPaid;
+        let choise = "PARCELADO";
+
         if (totalCashBuy < totalTermBuy) {
-            return printResults(
-                totalCashBuy,
-                totalTermBuy,
-                remunerationOnCashPaid,
-                remunerationOnCreditPaid,
-                "À VISTA"
-            );
+            choise = "À VISTA";
         }
-        return printResults(
+
+        printResults(
             totalCashBuy,
             totalTermBuy,
             remunerationOnCashPaid,
             remunerationOnCreditPaid,
-            "PARCELADO"
+            choise
+        );
+
+        let investmentReturnYear = interestCompoundPerMonthToYear(
+            investmentAndFeeReturn(installmentsDecimal).return
+        );
+        let feeReturn = investmentAndFeeReturn(installmentsDecimal).ransomFee;
+
+        saveHistoricCalc(
+            investmentReturnYear,
+            1 - feeReturn,
+            interestCompoundPerMonthToYear(inflationMonth()),
+            remunerationOnCashPaid,
+            totalCashBuy,
+            remunerationOnCreditPaid,
+            totalTermBuy,
+            choise
         );
     }
 
@@ -238,8 +257,6 @@ export function cashOrCredit() {
         }
 
         let totalReturn = parseFloat(cashAmmout - diferencePaid);
-        console.log("DIFERENCE totalReturn", totalReturn);
-        console.log("DIFERENCE fee", ransomFee);
 
         let returnWithFee = totalReturn * ransomFee;
         const cashReturnProportion = 1 + returnWithFee / diferencePaid;
@@ -247,7 +264,6 @@ export function cashOrCredit() {
 
         let realReturn =
             (cashReturnProportion / inflationProportion - 1) * diferencePaid;
-        console.log("DIFERENCE realReturn", realReturn);
         return realReturn;
     }
 
@@ -285,16 +301,12 @@ export function cashOrCredit() {
             }
         }
 
-        console.log("PARCELADO totalReturn", totalReturn);
-        console.log("PARCELADO fee", ransomFee);
-
         let returnWithFee = totalReturn * ransomFee;
         const cashReturnProportion = 1 + returnWithFee / cashBuyDecimal;
         const inflationProportion = (1 + inflationMonth()) ** installments;
 
         let realReturn =
             (cashReturnProportion / inflationProportion - 1) * cashBuyDecimal;
-        console.log("PARCELADO realReturn", realReturn);
         return realReturn;
     }
 
@@ -309,7 +321,6 @@ export function cashOrCredit() {
                 inflationMonth = interestCompoundPerYearToMonth(
                     formatCurrencyToFloat(userIpca.value) / 100
                 );
-                console.log("inflationMonth", inflationMonth);
             } else {
                 inflationMonth = formatCurrencyToFloat(userIpca.value) / 100;
             }
@@ -321,7 +332,6 @@ export function cashOrCredit() {
             inflationMonth = inflationActualMonth;
         }
 
-        console.log("inflationMonth", inflationMonth);
         return parseFloat(inflationMonth);
     }
 
@@ -409,6 +419,38 @@ export function cashOrCredit() {
         indicator4.classList.add("fa-solid");
         indicator4.classList.add("fa-spinner");
         indicator4.classList.add("fa-spin-pulse");
+    }
+
+    function saveHistoricCalc(
+        investmentReturnYear,
+        feeReturn,
+        inflation,
+        remunerationOnCashPaid,
+        totalCashBuy,
+        remunerationOnCreditPaid,
+        totalTermBuy,
+        choise
+    ) {
+        const investmentSelectedIndex = investmentCB.selectedIndex;
+        const investmentText =
+            investmentCB.options[investmentSelectedIndex].text;
+
+        saveHistoric(
+            name(),
+            getActualDateAndTimeBrazil(),
+            `R$ ${termBuyValue.value}`,
+            `R$ ${cashBuyValue.value}`,
+            installments.value,
+            investmentText,
+            `${formatNumberBrazil(investmentReturnYear * 100)}%`,
+            `${formatNumberBrazil(feeReturn * 100)}%`,
+            `${formatNumberBrazil(inflation * 100)}%`,
+            `R$ ${formatToCurrency(remunerationOnCashPaid)}`,
+            `R$ ${formatToCurrency(totalCashBuy)}`,
+            `R$ ${formatToCurrency(remunerationOnCreditPaid)}`,
+            `R$ ${formatToCurrency(totalTermBuy)}`,
+            choise
+        );
     }
 
     function name() {

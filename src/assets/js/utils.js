@@ -74,38 +74,31 @@ export function convertDateToBrazil(date) {
 export function getActualDateBrazil() {
     const dateObject = new Date();
 
-    let day = dateObject.getDate();
-    let month = dateObject.getMonth() + 1;
+    let day = fullZero(dateObject.getDate());
+    let month = fullZero(dateObject.getMonth() + 1);
     const year = dateObject.getFullYear();
 
-    if (month < 10) {
-        month = `0${month}`;
-    }
-
-    if (day < 10) {
-        day = `0${day}`;
-    }
     return `${day}/${month}/${year}`;
 }
 
 export function getActualDateAndTimeBrazil() {
     const dateObject = new Date();
 
-    let day = dateObject.getDate();
-    let month = dateObject.getMonth() + 1;
+    let day = fullZero(dateObject.getDate());
+    let month = fullZero(dateObject.getMonth() + 1);
     const year = dateObject.getFullYear();
-    const hour = dateObject.getHours();
-    const minutes = dateObject.getMinutes();
-    const seconds = dateObject.getSeconds();
+    let hour = fullZero(dateObject.getHours());
+    let minutes = fullZero(dateObject.getMinutes());
+    let seconds = fullZero(dateObject.getSeconds());
 
-    if (month < 10) {
-        month = `0${month}`;
-    }
-
-    if (day < 10) {
-        day = `0${day}`;
-    }
     return `${day}/${month}/${year} ${hour}:${minutes}:${seconds}`;
+}
+
+function fullZero(number) {
+    if (number < 10) {
+        return `0${number}`;
+    }
+    return number;
 }
 
 export function getNextYear() {

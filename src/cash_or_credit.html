@@ -323,25 +323,31 @@
     <div class="historic-container hidden">
         <div class="historic-content-table">
             <div class="close-content">
-                <i class="fa-solid fa-circle-xmark close-icon"></i>
                 <p>Histórico de cálculos</p>
+                <i class="fa-solid fa-circle-xmark close-icon"></i>
             </div>
             <div class="historic-table-container">
-                <table class="historic-table">
+                <table id="historic-table" class="historic-table">
                     <tr>
                         <th>ID</th>
-                        <th>Valor à vista</th>
-                        <th>Taxa de juros (a.a)</th>
-                        <th>Período</th>
-                        <th>Valor da compra</th>
-                        <th>Valor da parcela</th>
-                        <th>Valor de juros</th>
-                        <th>Quanto a mais foi pago?</th>
+                        <th>Data do cálculo</th>
+                        <th>Valor total compra parcelada</th>
+                        <th>Valor total compra à vista</th>
+                        <th>N° de parcelas</th>
+                        <th>Onde investe?</th>
+                        <th>Rendimento investimento (a.a)</th>
+                        <th>Imposto no resgate do investimento</th>
+                        <th>Inflação (a.a)</th>
+                        <th>Valor de juros real na compra à vista</th>
+                        <th>Valor do bem à vista</th>
+                        <th>Valor de juros real na compra parcelada</th>
+                        <th>Valor do bem parcelado</th>
+                        <th>Melhor escolha</th>
                     </tr>
                 </table>
             </div>
             <div class="clear-historic-container">
-                <button class="button-clean">Limpar</button>
+                <button class="button-clean-historic">Limpar</button>
             </div>
         </div>
     </div>

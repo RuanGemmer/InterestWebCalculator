@@ -113,12 +113,15 @@ export function totalBuy() {
         insterestPaid,
         percent
     ) {
+        const timeSelectedIndex = investedTime.selectedIndex;
+        const timeText = investedTime.options[timeSelectedIndex].text;
+
         saveHistoric(
             name(),
             getActualDateAndTimeBrazil(),
             `R$ ${initialValue.value}`,
             `${formatNumberBrazil(interestPerYear * 100)}%`,
-            `${time.value} ${investedTime.value}`,
+            `${time.value} ${timeText}`,
             `R$ ${formatToCurrency(ammout)}`,
             `R$ ${formatToCurrency(installment)} ao ${investedTime.value}`,
             `R$ ${formatToCurrency(insterestPaid)}`,

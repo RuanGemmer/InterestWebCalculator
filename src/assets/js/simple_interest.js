@@ -1,5 +1,11 @@
+import { saveHistoric } from "./historic";
 import { convertCBInterestToYear, convertoCBTimeToYear } from "./transforms";
-import { formatCurrencyToFloat, formatToCurrency } from "./utils";
+import {
+    formatCurrencyToFloat,
+    formatNumberBrazil,
+    formatToCurrency,
+    getActualDateAndTimeBrazil,
+} from "./utils";
 import { hasNotEmptyFields } from "./validation";
 
 export function simpleInterest() {
@@ -76,6 +82,7 @@ export function simpleInterest() {
         let ammout = Number(initialValueFloat) + Number(interestReceived);
 
         printResults(ammout, initialValue.value, interestReceived);
+        saveHistoricCalc(interestPerYear, ammout, interestReceived);
     }
 
     function printResults(ammout, originalValue, interestRecived) {
@@ -85,6 +92,21 @@ export function simpleInterest() {
 
         resultsContainer.classList.remove("yes");
         resultsContainer.scrollIntoView({ behavior: "smooth" });
+    }
+
+    function saveHistoricCalc(interestPerYear, ammout, interestReceived) {
+        const timeSelectedIndex = investedTime.selectedIndex;
+        const timeText = investedTime.options[timeSelectedIndex].text;
+
+        saveHistoric(
+            name(),
+            getActualDateAndTimeBrazil(),
+            `R$ ${initialValue.value}`,
+            `${formatNumberBrazil(interestPerYear * 100)}%`,
+            `${time.value} ${timeText}`,
+            `R$ ${formatToCurrency(ammout)}`,
+            `R$ ${formatToCurrency(interestReceived)}`
+        );
     }
 
     function name() {
