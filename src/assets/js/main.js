@@ -72,7 +72,7 @@ function globalEvent(functionPage) {
         }
 
         if (el.classList.contains("open-historic")) {
-            openHistoric();
+            openHistoric(functionPage.name());
         }
 
         if (

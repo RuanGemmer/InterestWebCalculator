@@ -10,7 +10,6 @@ export function saveHistoric(...args) {
         const dataJson = localStorage.getItem("historic");
         let dataList = JSON.parse(dataJson);
 
-        console.log("lastCalc[1]", lastCalc[1]);
         mantainFiveCalcs(lastCalc[1], dataList);
 
         for (let i of dataList) {
@@ -33,11 +32,8 @@ function mantainFiveCalcs(pageName, dataList) {
     for (let i of dataList) {
         if (i[1] === pageName) {
             countHistorical++;
-            console.log("countHistorical", countHistorical);
-            console.log("i[0]", i[0]);
             if (i[0] < minimunIdCount || minimunIdCount === undefined) {
                 minimunIdCount = i[0];
-                console.log("minimunIdCount", minimunIdCount);
             }
         }
     }
@@ -65,17 +61,81 @@ function nextId() {
     }
 }
 
-function getHistoric() {
-    const objetoSalvo = JSON.parse(localStorage.getItem("historic"));
-    console.log(objetoSalvo);
+function getHistoric(pageName) {
+    let dataPrint = [];
+
+    if (localStorage.getItem("historic") != null) {
+        const dataJson = localStorage.getItem("historic");
+        let dataList = JSON.parse(dataJson);
+
+        for (let i of dataList) {
+            if (i[1] === pageName) {
+                dataPrint.push(i);
+            }
+        }
+    }
+    console.log("dataPrint getHistoric:", dataPrint);
+    return dataPrint;
+}
+
+function printHistoric(dataToPrint) {
+    let table = document.querySelector("#historic-table");
+
+    if (dataToPrint.length === 0) {
+        const tableContainer = document.querySelector(
+            ".historic-table-container"
+        );
+        let newDiv = document.createElement("div");
+        newDiv.textContent = "Sem histórico";
+        newDiv.classList.add("no-table-data");
+
+        tableContainer.appendChild(newDiv);
+
+        return;
+    }
+
+    //Create row
+    for (let i = dataToPrint.length - 1; i >= 0; i--) {
+        let newRow = table.insertRow();
+        console.log("i print historic:", dataToPrint[i]);
+
+        //Create and feed cells
+        for (let j = 0; j < dataToPrint[i].length; j++) {
+            console.log("i[j] print historic:", dataToPrint[i][j]);
+            if (j === 1) {
+                continue;
+            }
+            let newCell = newRow.insertCell();
+            newCell.innerHTML = dataToPrint[i][j];
+        }
+    }
+}
+
+function clearTableOnClose() {
+    let table = document.querySelector("#historic-table");
+    let rows = table.getElementsByTagName("tr");
+    const tableContainer = document.querySelector(".historic-table-container");
+    const noTableDataDiv = tableContainer.querySelector(".no-table-data");
+
+    if (noTableDataDiv !== null) {
+        noTableDataDiv.remove();
+    }
+
+    if (rows.length > 1) {
+        for (var i = rows.length - 1; i > 0; i--) {
+            table.deleteRow(i);
+        }
+    }
 }
 
 export function closeHistoric() {
     const historic = document.querySelector(".historic-container");
     historic.classList.add("hidden");
+    clearTableOnClose();
 }
 
-export function openHistoric() {
+export function openHistoric(pageName) {
     const historic = document.querySelector(".historic-container");
     historic.classList.remove("hidden");
+    printHistoric(getHistoric(pageName));
 }

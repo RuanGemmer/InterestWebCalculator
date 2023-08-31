@@ -814,6 +814,14 @@ input:valid ~ label {
     display: none;
 }
 
+.no-table-data{
+    margin: auto;
+    text-align: center;
+    padding: var(--gap-large) var(--gap-smaller);
+    font-size: 2rem;
+    color: var(--color-gray-5);
+}
+
 /* menu */
 .menu {
     display: none;
